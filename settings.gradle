@@ -1,0 +1,1 @@
+include ':app', ':mvvmhabit', ':stkj_base'
