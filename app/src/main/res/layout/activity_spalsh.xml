@@ -29,7 +29,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
-                android:text="跳过 3"
+                android:text="@={viewModel.countDownContent}"
                 android:textColor="@color/color_ffffff"
                 android:gravity="center"
                 android:background="@drawable/transparent_grey_round"

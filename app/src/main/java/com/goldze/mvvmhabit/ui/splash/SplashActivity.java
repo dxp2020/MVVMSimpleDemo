@@ -27,5 +27,9 @@ public class SplashActivity extends BaseActivity<ActivitySpalshBinding,SplashVie
         return ViewModelProviders.of(this).get(SplashViewModel.class);
     }
 
-
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewModel.startCountDown();
+    }
 }
