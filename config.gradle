@@ -1,19 +1,21 @@
 ext {
     //android开发版本配置
     android = [
-            compileSdkVersion: 27,
-            buildToolsVersion: "27.0.2",
+            compileSdkVersion: 28,
+            buildToolsVersion: "28.0.3",
             applicationId    : "com.shangtao.vadk",
-            minSdkVersion    : 16,
-            targetSdkVersion : 27,
-            versionCode      : 1,
-            versionName      : "1.0",
+            minSdkVersion    :  16,
+            targetSdkVersion :  28,
+            versionCode      :   1,
+            versionName      : "0.0.1",
     ]
+
     //version配置
     versions = [
             "support-version": "27.0.2",
             "junit-version"  : "4.12",
     ]
+
     //support配置
     support = [
             "constraint-layout"       : "1.0.0-beta2",
@@ -26,6 +28,7 @@ ext {
             'animated-vector-drawable': "com.android.support:animated-vector-drawable:${versions["support-version"]}",
             'junit'                   : "junit:junit:${versions["junit-version"]}",
     ]
+
     //依赖第三方配置
     dependencies = [
             //rxjava

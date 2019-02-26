@@ -1,1 +1,1 @@
-include ':app', ':mvvmhabit', ':stkj_base'
+include ':app', ':stkj_base'
