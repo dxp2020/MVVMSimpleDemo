@@ -1,4 +1,4 @@
-package me.goldze.mvvmhabit;
+package com.shangtao;
 
 import org.junit.Test;
 

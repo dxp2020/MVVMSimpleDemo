@@ -1,4 +1,4 @@
-package me.goldze.mvvmhabit;
+package com.shangtao;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("me.goldze.mvvmhabit.test", appContext.getPackageName());
+        assertEquals("com.shangtao.test", appContext.getPackageName());
     }
 }

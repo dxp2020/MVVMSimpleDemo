@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.goldze.mvvmhabit.ui.login.LoginViewModel" />
+            type="com.shangtao.vadk.ui.login.LoginViewModel" />
     </data>
 
     <RelativeLayout

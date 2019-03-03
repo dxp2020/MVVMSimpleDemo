@@ -26,7 +26,7 @@
 
 #------------------------------------------主项目混淆规则----------------------------------------------
 #实体类不参与混淆
--keep class com.goldze.mvvmhabit.entity.** { *; }
+-keep class com.shangtao.vadk.entity.** { *; }
 
 #tkrefreshlayout
 -keep class com.lcodecore.tkrefreshlayout.** { *; }
@@ -35,7 +35,7 @@
 #-------------------------------------------MVVMHabit混淆规则----------------------------------------------
 #---------------------------------1.实体类---------------------------------
 
--keep class me.goldze.mvvmhabit.http.BaseResponse { *; }
+-keep class com.shangtao.http.BaseResponse { *; }
 
 #-------------------------------------------------------------------------
 
@@ -134,17 +134,17 @@
 #----------------------------------------------------------------------------
 
 #---------------------------------4.反射相关的类和方法-----------------------
--keep public class * extends me.goldze.mvvmhabit.base.BaseActivity{ *; }
--keep public class * extends me.goldze.mvvmhabit.base.BaseFragment{ *; }
--keep public class * extends me.goldze.mvvmhabit.binding.command.BindingCommand{ *; }
--keep public class * extends me.goldze.mvvmhabit.binding.command.ResponseCommand{ *; }
+-keep public class * extends com.shangtao.base.BaseActivity{ *; }
+-keep public class * extends com.shangtao.base.BaseFragment{ *; }
+-keep public class * extends com.shangtao.binding.command.BindingCommand{ *; }
+-keep public class * extends com.shangtao.binding.command.ResponseCommand{ *; }
 
 
 #----------------------------------------------------------------------------
 
 #---------------------------------5.自定义控件------------------------------
 
--keep class me.goldze.mvvmhabit.widget.** { *; }
+-keep class com.shangtao.widget.** { *; }
 
 #----------------------------------------------------------------------------
 #---------------------------------6.其他定制区-------------------------------
