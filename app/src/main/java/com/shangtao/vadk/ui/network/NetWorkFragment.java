@@ -1,6 +1,6 @@
 package com.shangtao.vadk.ui.network;
 
-import android.arch.lifecycle.Observer;
+import androidx.lifecycle.Observer;
 import android.databinding.Observable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;

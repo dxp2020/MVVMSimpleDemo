@@ -1,9 +1,9 @@
 package com.shangtao.vadk.ui.tab_bar.activity;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
+import androidx.core.app.Fragment;
+import androidx.core.app.FragmentTransaction;
+import androidx.core.content.ContextCompat;
 
 import com.shangtao.vadk.BR;
 import com.shangtao.vadk.R;

@@ -1,7 +1,7 @@
 package com.shangtao.vadk.ui.form;
 
 import android.app.Application;
-import android.arch.lifecycle.MutableLiveData;
+import androidx.lifecycle.MutableLiveData;
 import android.databinding.ObservableBoolean;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;

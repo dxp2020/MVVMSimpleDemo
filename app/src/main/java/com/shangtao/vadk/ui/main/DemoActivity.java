@@ -2,8 +2,8 @@ package com.shangtao.vadk.ui.main;
 
 import android.Manifest;
 import android.app.ProgressDialog;
-import android.arch.lifecycle.Observer;
-import android.content.Context;
+import androidx.lifecycle.Observer;
+
 import android.databinding.Observable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,7 +17,6 @@ import io.reactivex.functions.Consumer;
 import com.shangtao.base.BaseActivity;
 import com.shangtao.http.DownLoadManager;
 import com.shangtao.http.download.ProgressCallBack;
-import com.shangtao.utils.KLog;
 import com.shangtao.utils.ToastUtils;
 import okhttp3.ResponseBody;
 

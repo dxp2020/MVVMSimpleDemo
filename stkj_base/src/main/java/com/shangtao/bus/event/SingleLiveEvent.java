@@ -16,9 +16,9 @@
 
 package com.shangtao.bus.event;
 
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Observer;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 import android.support.annotation.MainThread;
 import android.support.annotation.Nullable;
 import android.util.Log;

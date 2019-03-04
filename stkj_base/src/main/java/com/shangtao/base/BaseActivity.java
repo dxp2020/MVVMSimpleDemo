@@ -1,14 +1,14 @@
 package com.shangtao.base;
 
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
+import androidx.core.app.FragmentActivity;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
@@ -21,6 +21,9 @@ import com.shangtao.base.BaseViewModel.ParameterField;
 import com.shangtao.bus.Messenger;
 import com.shangtao.utils.MaterialDialogUtils;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 
 /**
  * Created by goldze on 2017/6/15.
@@ -30,14 +33,18 @@ import com.shangtao.utils.MaterialDialogUtils;
 public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseViewModel> extends RxAppCompatActivity implements IBaseActivity {
     protected V binding;
     protected VM viewModel;
+    protected Bundle savedInstanceState;
     private int viewModelId;
     private MaterialDialog dialog;
+    public Unbinder unbinder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //页面接受的参数方法
         initParam();
+        //注册ButterKnife
+        unbinder = ButterKnife.bind(this);
         //私有的初始化Databinding和ViewModel方法
         initViewDataBinding(savedInstanceState);
         //私有的ViewModel与View的契约事件回调逻辑
@@ -53,6 +60,9 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if(unbinder!=null){
+            unbinder.unbind();
+        }
         //解除Messenger注册
         Messenger.getDefault().unregister(viewModel);
         //解除ViewModel生命周期感应
@@ -69,6 +79,7 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
      * 注入绑定
      */
     private void initViewDataBinding(Bundle savedInstanceState) {
+        this.savedInstanceState = savedInstanceState;
         //DataBindingUtil类需要在project的build中配置 dataBinding {enabled true }, 同步后会自动关联android.databinding包
         binding = DataBindingUtil.setContentView(this, initContentView(savedInstanceState));
         viewModelId = initVariableId();
@@ -254,6 +265,10 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
     @Override
     public void initViewObservable() {
 
+    }
+
+    public Bundle getSavedInstanceState(){
+        return savedInstanceState;
     }
 
     /**

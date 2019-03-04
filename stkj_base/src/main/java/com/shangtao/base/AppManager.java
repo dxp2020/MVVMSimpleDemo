@@ -1,7 +1,7 @@
 package com.shangtao.base;
 
 import android.app.Activity;
-import android.support.v4.app.Fragment;
+import androidx.core.app.Fragment;
 
 import java.util.Stack;
 

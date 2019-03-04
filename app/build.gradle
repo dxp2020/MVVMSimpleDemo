@@ -1,18 +1,21 @@
 apply plugin: 'com.android.application'
+apply from: "../gradle_component/baseconfig.gradle"
 
 android {
-    compileSdkVersion rootProject.ext.android.compileSdkVersion
+
     defaultConfig {
-        applicationId rootProject.ext.android.applicationId
-        minSdkVersion rootProject.ext.android.minSdkVersion
-        targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionCode rootProject.ext.android.versionCode
-        versionName rootProject.ext.android.versionName
+        renderscriptTargetApi 19
+        renderscriptSupportModeEnabled true    // Enable RS support
     }
 
     aaptOptions {
         cruncherEnabled = false
         useNewCruncher = false
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 
     buildTypes {
@@ -26,27 +29,19 @@ android {
         }
     }
 
-    dataBinding {
-        enabled true
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
     }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    //support
-    implementation rootProject.ext.support["design"]
     //下拉刷新,上拉加载
     implementation 'com.lcodecorex:tkrefreshlayout:1.0.7'
-
-    implementation 'com.github.mmin18:flexlayout:1.2.7'
-
     //底部tabBar
     implementation ('me.majiajie:pager-bottom-tab-strip:2.2.5'){
         exclude group: 'com.android.support'
     }
     //MVVMHabit
     implementation project(':stkj_base')
-    //内存泄漏测试
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.2'
-    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.2'
 }

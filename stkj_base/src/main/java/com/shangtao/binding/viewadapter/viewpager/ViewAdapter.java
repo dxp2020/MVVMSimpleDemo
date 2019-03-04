@@ -1,9 +1,7 @@
 package com.shangtao.binding.viewadapter.viewpager;
 
 import android.databinding.BindingAdapter;
-import android.support.v4.view.ViewPager;
-import android.text.TextUtils;
-import android.webkit.WebView;
+import androidx.core.view.ViewPager;
 
 import com.shangtao.binding.command.BindingCommand;
 

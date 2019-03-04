@@ -1,4 +1,4 @@
-apply from: "config.gradle"
+apply from: "./gradle_component/dependencies.gradle"
 
 buildscript {
     repositories {
@@ -8,6 +8,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.1'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:10.1.0'
     }
 }
 

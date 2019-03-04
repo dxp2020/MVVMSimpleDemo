@@ -1,6 +1,5 @@
 package com.shangtao.vadk.ui.splash;
 
-import android.annotation.SuppressLint;
 import android.app.Application;
 import android.databinding.ObservableField;
 import android.support.annotation.NonNull;
@@ -9,12 +8,12 @@ import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import com.shangtao.base.BaseViewModel;
 import com.shangtao.binding.command.BindingAction;
 import com.shangtao.binding.command.BindingCommand;
 import com.shangtao.utils.RxUtils;
+import com.shangtao.vadk.ui.home.activity.HomeActivity;
 
 public class SplashViewModel extends BaseViewModel {
 
@@ -28,6 +27,7 @@ public class SplashViewModel extends BaseViewModel {
     public BindingCommand jumpToHomeOnClickCommand = new BindingCommand(new BindingAction() {
         @Override
         public void call() {
+            startActivity(HomeActivity.class);
             finish();
         }
     });

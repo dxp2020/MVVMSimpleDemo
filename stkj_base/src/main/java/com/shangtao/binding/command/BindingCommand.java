@@ -1,7 +1,6 @@
 package com.shangtao.binding.command;
 
 
-import io.reactivex.exceptions.Exceptions;
 
 /**
  * About : kelin的ReplyCommand

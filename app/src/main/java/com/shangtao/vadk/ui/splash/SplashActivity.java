@@ -1,6 +1,6 @@
 package com.shangtao.vadk.ui.splash;
 
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 
 import com.shangtao.vadk.BR;

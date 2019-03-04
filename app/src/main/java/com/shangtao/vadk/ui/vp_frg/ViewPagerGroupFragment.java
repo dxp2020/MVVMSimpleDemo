@@ -1,6 +1,6 @@
 package com.shangtao.vadk.ui.vp_frg;
 
-import android.support.v4.app.Fragment;
+import androidx.core.app.Fragment;
 
 
 import com.shangtao.vadk.ui.base.fragment.BasePagerFragment;

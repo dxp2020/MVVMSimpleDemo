@@ -1,7 +1,7 @@
 package com.shangtao.vadk.ui.viewpager.adapter;
 
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.Observer;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
 import android.databinding.ViewDataBinding;
 import android.support.annotation.Nullable;
 import android.view.ViewGroup;

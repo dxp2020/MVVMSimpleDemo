@@ -1,7 +1,7 @@
 package com.shangtao.binding.viewadapter.swiperefresh;
 
 import android.databinding.BindingAdapter;
-import android.support.v4.widget.SwipeRefreshLayout;
+import androidx.core.widget.SwipeRefreshLayout;
 
 import com.shangtao.binding.command.BindingCommand;
 

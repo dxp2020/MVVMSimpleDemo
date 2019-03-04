@@ -4,7 +4,7 @@ import android.databinding.ObservableField;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 
 import com.shangtao.vadk.R;
 import com.shangtao.vadk.entity.DemoEntity;

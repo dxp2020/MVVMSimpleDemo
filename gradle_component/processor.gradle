@@ -1,0 +1,6 @@
+// 将所有的apt插件库统一加入。
+apply plugin: 'android-apt'
+apply plugin: 'com.jakewharton.butterknife'
+dependencies {
+//    apt "${DEVDEPS.butterknifeApt}"
+}
