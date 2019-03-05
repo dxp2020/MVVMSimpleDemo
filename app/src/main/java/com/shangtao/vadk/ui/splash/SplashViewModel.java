@@ -1,8 +1,8 @@
 package com.shangtao.vadk.ui.splash;
 
 import android.app.Application;
-import android.databinding.ObservableField;
-import android.support.annotation.NonNull;
+import androidx.databinding.ObservableField;
+import androidx.annotation.NonNull;
 
 import java.util.concurrent.TimeUnit;
 

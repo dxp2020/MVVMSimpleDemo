@@ -1,6 +1,6 @@
 package com.shangtao.binding.viewadapter.scrollview;
 
-import android.databinding.BindingAdapter;
+import androidx.databinding.BindingAdapter;
 import androidx.core.widget.NestedScrollView;
 import android.view.ViewTreeObserver;
 import android.widget.ScrollView;

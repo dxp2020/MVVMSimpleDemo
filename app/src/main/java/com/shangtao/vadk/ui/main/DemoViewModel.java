@@ -2,9 +2,9 @@ package com.shangtao.vadk.ui.main;
 
 import android.app.Application;
 import androidx.lifecycle.MutableLiveData;
-import android.databinding.ObservableBoolean;
+import androidx.databinding.ObservableBoolean;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.shangtao.vadk.entity.FormEntity;
 import com.shangtao.vadk.ui.form.FormFragment;

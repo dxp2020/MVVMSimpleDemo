@@ -1,10 +1,10 @@
 package com.shangtao.vadk.ui.login;
 
 import android.app.Application;
-import android.databinding.ObservableBoolean;
-import android.databinding.ObservableField;
-import android.databinding.ObservableInt;
-import android.support.annotation.NonNull;
+import androidx.databinding.ObservableBoolean;
+import androidx.databinding.ObservableField;
+import androidx.databinding.ObservableInt;
+import androidx.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 

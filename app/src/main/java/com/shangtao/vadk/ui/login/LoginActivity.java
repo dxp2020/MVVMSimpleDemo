@@ -1,7 +1,7 @@
 package com.shangtao.vadk.ui.login;
 
 import androidx.lifecycle.ViewModelProviders;
-import android.databinding.Observable;
+import androidx.databinding.Observable;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;

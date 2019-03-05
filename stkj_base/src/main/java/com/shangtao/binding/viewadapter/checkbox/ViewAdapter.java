@@ -1,10 +1,11 @@
 package com.shangtao.binding.viewadapter.checkbox;
 
-import android.databinding.BindingAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
 import com.shangtao.binding.command.BindingCommand;
+
+import androidx.databinding.BindingAdapter;
 
 /**
  * Created by goldze on 2017/6/16.

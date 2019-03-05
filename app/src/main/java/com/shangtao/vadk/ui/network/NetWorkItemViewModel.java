@@ -1,9 +1,9 @@
 package com.shangtao.vadk.ui.network;
 
-import android.databinding.ObservableField;
+import androidx.databinding.ObservableField;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import com.shangtao.vadk.R;

@@ -4,9 +4,9 @@ import android.Manifest;
 import android.app.ProgressDialog;
 import androidx.lifecycle.Observer;
 
-import android.databinding.Observable;
+import androidx.databinding.Observable;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.shangtao.vadk.BR;
 import com.shangtao.vadk.R;

@@ -2,12 +2,13 @@ package com.shangtao.vadk.ui.base.fragment;
 
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import androidx.core.app.Fragment;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.google.android.material.tabs.TabLayout;
 import com.shangtao.vadk.R;
 import com.shangtao.vadk.BR;
 import com.shangtao.vadk.databinding.FragmentBasePagerBinding;

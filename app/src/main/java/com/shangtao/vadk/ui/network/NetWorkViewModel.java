@@ -2,10 +2,10 @@ package com.shangtao.vadk.ui.network;
 
 import android.app.Application;
 import androidx.lifecycle.MutableLiveData;
-import android.databinding.ObservableArrayList;
-import android.databinding.ObservableBoolean;
-import android.databinding.ObservableList;
-import android.support.annotation.NonNull;
+import androidx.databinding.ObservableArrayList;
+import androidx.databinding.ObservableBoolean;
+import androidx.databinding.ObservableList;
+import androidx.annotation.NonNull;
 
 import com.shangtao.vadk.BR;
 import com.shangtao.vadk.R;

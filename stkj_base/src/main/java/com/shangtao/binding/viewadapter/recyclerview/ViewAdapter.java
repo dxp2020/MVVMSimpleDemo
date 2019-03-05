@@ -1,11 +1,11 @@
 package com.shangtao.binding.viewadapter.recyclerview;
 
-import android.databinding.BindingAdapter;
-import androidx.appcompat.widget.LinearLayoutManager;
-import androidx.appcompat.widget.RecyclerView;
+import androidx.databinding.BindingAdapter;
 
 import java.util.concurrent.TimeUnit;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import io.reactivex.functions.Consumer;
 import io.reactivex.subjects.PublishSubject;
 import com.shangtao.binding.command.BindingCommand;

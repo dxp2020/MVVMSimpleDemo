@@ -1,14 +1,17 @@
 package com.shangtao.base;
 
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProviders;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import androidx.core.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +35,7 @@ public abstract class BaseFragment<V extends ViewDataBinding, VM extends BaseVie
     protected VM viewModel;
     private int viewModelId;
     private MaterialDialog dialog;
+    public Unbinder unbinder;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,8 @@ public abstract class BaseFragment<V extends ViewDataBinding, VM extends BaseVie
         binding = DataBindingUtil.inflate(inflater, initContentView(inflater, container, savedInstanceState), container, false);
         viewModelId = initVariableId();
         viewModel = initViewModel();
+        //注册ButterKnife
+        unbinder = ButterKnife.bind(getActivity());
         if (viewModel == null) {
             Class modelClass;
             Type type = getClass().getGenericSuperclass();

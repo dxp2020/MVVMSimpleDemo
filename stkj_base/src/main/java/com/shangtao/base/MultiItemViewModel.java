@@ -1,6 +1,7 @@
 package com.shangtao.base;
 
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 /**
  * Create Author：goldze

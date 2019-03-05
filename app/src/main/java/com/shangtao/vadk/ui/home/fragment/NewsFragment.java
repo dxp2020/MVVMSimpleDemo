@@ -1,7 +1,7 @@
 package com.shangtao.vadk.ui.home.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -15,11 +15,11 @@ public class NewsFragment  extends BaseFragment<FragmentNewsBinding, NewsViewMod
 
     @Override
     public int initContentView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return BR.viewModel;
+        return R.layout.fragment_news;
     }
 
     @Override
     public int initVariableId() {
-        return R.layout.fragment_news;
+        return BR.viewModel;
     }
 }

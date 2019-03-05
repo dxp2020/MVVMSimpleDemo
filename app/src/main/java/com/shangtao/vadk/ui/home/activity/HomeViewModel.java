@@ -1,7 +1,7 @@
 package com.shangtao.vadk.ui.home.activity;
 
 import android.app.Application;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.shangtao.base.BaseViewModel;
 

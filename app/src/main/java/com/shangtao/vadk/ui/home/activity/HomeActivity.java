@@ -1,7 +1,6 @@
 package com.shangtao.vadk.ui.home.activity;
 
 import android.os.Bundle;
-import androidx.core.app.FragmentTransaction;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -16,6 +15,7 @@ import com.shangtao.vadk.ui.home.fragment.HomeFragment;
 import com.shangtao.vadk.ui.home.fragment.NewsFragment;
 import com.shangtao.vadk.ui.home.fragment.PersonalCenterFragment;
 
+import androidx.fragment.app.FragmentTransaction;
 import butterknife.BindView;
 
 public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewModel> {
@@ -58,7 +58,7 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
             newsFragment = (NewsFragment) getSupportFragmentManager()
                     .findFragmentByTag(NewsFragment.class.getSimpleName());
             personalCenterFragment = (PersonalCenterFragment) getSupportFragmentManager()
-                    .findFragmentByTag(NewsFragment.class.getSimpleName());
+                    .findFragmentByTag(PersonalCenterFragment.class.getSimpleName());
         } else {
             switchTo(radioHome);
         }

@@ -1,14 +1,11 @@
 package com.shangtao.binding.viewadapter.mswitch;
 
-import android.databinding.BindingAdapter;
-import android.text.TextUtils;
+import androidx.databinding.BindingAdapter;
+
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
 import com.shangtao.binding.command.BindingCommand;
-
-import static android.R.attr.checked;
-import static com.shangtao.R.attr.switchState;
 
 /**
  * Created by goldze on 2017/6/18.

@@ -1,23 +1,20 @@
 package com.shangtao.http;
 
-import android.databinding.ObservableBoolean;
-
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
-import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
-import com.shangtao.bus.RxBus;
+
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.shangtao.http.download.DownLoadSubscriber;
 import com.shangtao.http.download.ProgressCallBack;
 import com.shangtao.http.interceptor.ProgressInterceptor;
-import com.shangtao.utils.RxUtils;
+
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Streaming;
 import retrofit2.http.Url;

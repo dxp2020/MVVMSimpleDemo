@@ -25,7 +25,6 @@
             android:id="@+id/ll_home"
             android:layout_width="fill_parent"
             android:layout_height="66dp"
-            android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
             android:background="@color/white"
             android:gravity="center_vertical"
@@ -35,7 +34,7 @@
                 android:id="@+id/radio_home"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="bottom|center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -51,14 +50,16 @@
                     android:layout_marginTop="2dp"
                     android:text="首页"
                     android:textColor="@color/color_theme_color"
-                    android:textSize="11sp" />
+                    android:textSize="11sp"
+                    android:layout_marginBottom="5dp"
+                    />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/radio_news"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="bottom|center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -74,8 +75,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:text="资讯"
-                    android:textColor="@color/color_theme_color"
-                    android:textSize="11sp" />
+                    android:textColor="@color/color_333333"
+                    android:textSize="11sp"
+                    android:layout_marginBottom="5dp"
+                    />
             </LinearLayout>
 
             <LinearLayout
@@ -99,7 +102,7 @@
                 android:id="@+id/radio_events"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="bottom|center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -115,15 +118,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:text="活动"
-                    android:textColor="@color/color_theme_color"
-                    android:textSize="11sp" />
+                    android:textColor="@color/color_333333"
+                    android:textSize="11sp"
+                    android:layout_marginBottom="5dp"
+                    />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/radio_my"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="bottom|center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -139,8 +144,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:text="个人中心"
-                    android:textColor="@color/color_theme_color"
-                    android:textSize="11sp" />
+                    android:textColor="@color/color_333333"
+                    android:textSize="11sp"
+                    android:layout_marginBottom="5dp"
+                    />
             </LinearLayout>
 
         </LinearLayout>

@@ -1,10 +1,10 @@
 package com.shangtao.vadk.ui.network;
 
 import androidx.lifecycle.Observer;
-import android.databinding.Observable;
+import androidx.databinding.Observable;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 

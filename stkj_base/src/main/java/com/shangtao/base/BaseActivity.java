@@ -1,14 +1,14 @@
 package com.shangtao.base;
 
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import androidx.core.app.FragmentActivity;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
@@ -43,8 +43,6 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
         super.onCreate(savedInstanceState);
         //页面接受的参数方法
         initParam();
-        //注册ButterKnife
-        unbinder = ButterKnife.bind(this);
         //私有的初始化Databinding和ViewModel方法
         initViewDataBinding(savedInstanceState);
         //私有的ViewModel与View的契约事件回调逻辑
@@ -84,6 +82,8 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
         binding = DataBindingUtil.setContentView(this, initContentView(savedInstanceState));
         viewModelId = initVariableId();
         viewModel = initViewModel();
+        //注册ButterKnife
+        unbinder = ButterKnife.bind(this);
         if (viewModel == null) {
             Class modelClass;
             Type type = getClass().getGenericSuperclass();

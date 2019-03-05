@@ -1,3 +1,4 @@
+apply plugin: 'com.jakewharton.butterknife'
 // 各个组件所使用的基本配置。定义在此。便于对多版本进行统一修改更新
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -67,6 +68,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     api rootProject.ext.SUPPORTDEPS.appcompatV7
+    api rootProject.ext.SUPPORTDEPS.animated_vector_drawable
+    api rootProject.ext.SUPPORTDEPS.design
     api rootProject.ext.SUPPORTDEPS.multidex
     api rootProject.ext.SUPPORTDEPS.recyclerView
 
@@ -75,6 +78,7 @@ dependencies {
     api rootProject.ext.OTHERDEPS.rxlifecycle
     api rootProject.ext.OTHERDEPS.rxlifecycle_components
     api rootProject.ext.OTHERDEPS.glide
+    api rootProject.ext.OTHERDEPS.glide_compiler
     api rootProject.ext.OTHERDEPS.retrofit
     api rootProject.ext.OTHERDEPS.converter_gson
     api rootProject.ext.OTHERDEPS.adapter_rxjava

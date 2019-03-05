@@ -1,7 +1,7 @@
 package com.shangtao.binding.viewadapter.viewpager;
 
-import android.databinding.BindingAdapter;
-import androidx.core.view.ViewPager;
+import androidx.databinding.BindingAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.shangtao.binding.command.BindingCommand;
 

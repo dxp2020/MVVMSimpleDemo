@@ -1,10 +1,11 @@
 package com.shangtao.vadk.ui.form;
 
 import android.app.DatePickerDialog;
+
+import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
-import android.databinding.Observable;
+import androidx.databinding.Observable;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -54,6 +55,7 @@ public class FormFragment extends BaseFragment<FragmentFormBinding, FormViewMode
         ((AppCompatActivity) getActivity()).setSupportActionBar(binding.include.toolbar);
         //View层传参到ViewModel层
         viewModel.setFormEntity(entity);
+
         //初始化标题
         viewModel.initToolbar();
     }

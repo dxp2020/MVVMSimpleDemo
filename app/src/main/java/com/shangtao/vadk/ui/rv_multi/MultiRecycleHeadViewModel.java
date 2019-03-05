@@ -1,6 +1,6 @@
 package com.shangtao.vadk.ui.rv_multi;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.shangtao.base.MultiItemViewModel;
 

@@ -1,7 +1,7 @@
 package com.shangtao.utils;
 
 import android.content.Context;
-import androidx.core.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 import com.trello.rxlifecycle2.LifecycleProvider;
 import com.trello.rxlifecycle2.LifecycleTransformer;

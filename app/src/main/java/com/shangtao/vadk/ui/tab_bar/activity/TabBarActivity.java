@@ -1,8 +1,7 @@
 package com.shangtao.vadk.ui.tab_bar.activity;
 
 import android.os.Bundle;
-import androidx.core.app.Fragment;
-import androidx.core.app.FragmentTransaction;
+import androidx.fragment.app.Fragment;
 import androidx.core.content.ContextCompat;
 
 import com.shangtao.vadk.BR;
@@ -18,6 +17,8 @@ import java.util.List;
 
 import com.shangtao.base.BaseActivity;
 import com.shangtao.base.BaseViewModel;
+
+import androidx.fragment.app.FragmentTransaction;
 import me.majiajie.pagerbottomtabstrip.NavigationController;
 import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectedListener;
 

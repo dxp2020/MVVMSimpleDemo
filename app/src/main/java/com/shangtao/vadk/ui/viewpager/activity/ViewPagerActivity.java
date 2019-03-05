@@ -1,14 +1,16 @@
 package com.shangtao.vadk.ui.viewpager.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 
+import com.google.android.material.tabs.TabLayout;
 import com.shangtao.vadk.BR;
 import com.shangtao.vadk.R;
 import com.shangtao.vadk.databinding.FragmentViewpagerBinding;
 import com.shangtao.vadk.ui.viewpager.vm.ViewPagerViewModel;
 
 import com.shangtao.base.BaseActivity;
+
+
 
 /**
  * ViewPager绑定的例子, 更多绑定方式，请参考 https://github.com/evant/binding-collection-adapter
@@ -39,6 +41,7 @@ public class ViewPagerActivity extends BaseActivity<FragmentViewpagerBinding, Vi
 
     @Override
     public void initViewObservable() {
+
 
     }
 }

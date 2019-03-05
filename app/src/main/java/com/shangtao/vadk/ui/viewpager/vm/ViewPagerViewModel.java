@@ -1,9 +1,9 @@
 package com.shangtao.vadk.ui.viewpager.vm;
 
 import android.app.Application;
-import android.databinding.ObservableArrayList;
-import android.databinding.ObservableList;
-import android.support.annotation.NonNull;
+import androidx.databinding.ObservableArrayList;
+import androidx.databinding.ObservableList;
+import androidx.annotation.NonNull;
 
 import com.shangtao.vadk.BR;
 import com.shangtao.vadk.R;

@@ -14,7 +14,14 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="活动"
+            android:textSize="30sp"
+            android:gravity="center"
+            />
     </LinearLayout>
 </layout>
 

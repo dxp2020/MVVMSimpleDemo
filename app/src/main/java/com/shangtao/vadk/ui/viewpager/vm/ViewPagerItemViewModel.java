@@ -1,6 +1,6 @@
 package com.shangtao.vadk.ui.viewpager.vm;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.shangtao.base.BaseViewModel;
 import com.shangtao.base.ItemViewModel;

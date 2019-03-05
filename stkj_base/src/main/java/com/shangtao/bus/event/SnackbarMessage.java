@@ -16,10 +16,10 @@
 
 package com.shangtao.bus.event;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
 
 /**
  * A SingleLiveEvent used for Snackbar messages. Like a {@link SingleLiveEvent} but also prevents

@@ -1,6 +1,6 @@
 package com.shangtao.binding.viewadapter.view;
 
-import android.databinding.BindingAdapter;
+import androidx.databinding.BindingAdapter;
 import android.view.View;
 
 import com.jakewharton.rxbinding2.view.RxView;
