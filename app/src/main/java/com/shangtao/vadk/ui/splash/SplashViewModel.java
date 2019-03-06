@@ -1,5 +1,6 @@
 package com.shangtao.vadk.ui.splash;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import androidx.databinding.ObservableField;
 import androidx.annotation.NonNull;
@@ -32,19 +33,18 @@ public class SplashViewModel extends BaseViewModel {
         }
     });
 
+    @SuppressLint("CheckResult")
     public void startCountDown() {
         // 倒计时 3s
         Flowable.intervalRange(1, 4, 1, 1, TimeUnit.SECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .compose(RxUtils.bindToLifecycle(getLifecycleProvider()))//界面关闭自动取消
-                .subscribe(new Consumer<Long>() {
-                    @Override
-                    public void accept(Long aLong) throws Exception {
-                        if((3 - aLong)>=0){
-                            countDownContent.set("跳过 " + String.valueOf(3 - aLong));
-                        }else{
-                            finish();
-                        }
+                .subscribe((Consumer<Long>) aLong -> {
+                    if((3 - aLong)>=0){
+                        countDownContent.set("跳过 " + String.valueOf(3 - aLong));
+                    }else{
+                        startActivity(HomeActivity.class);
+                        finish();
                     }
                 });
     }

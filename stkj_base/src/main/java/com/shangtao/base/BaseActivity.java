@@ -36,7 +36,6 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
     protected Bundle savedInstanceState;
     private int viewModelId;
     private MaterialDialog dialog;
-    public Unbinder unbinder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +57,6 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(unbinder!=null){
-            unbinder.unbind();
-        }
         //解除Messenger注册
         Messenger.getDefault().unregister(viewModel);
         //解除ViewModel生命周期感应
@@ -82,8 +78,6 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
         binding = DataBindingUtil.setContentView(this, initContentView(savedInstanceState));
         viewModelId = initVariableId();
         viewModel = initViewModel();
-        //注册ButterKnife
-        unbinder = ButterKnife.bind(this);
         if (viewModel == null) {
             Class modelClass;
             Type type = getClass().getGenericSuperclass();

@@ -20,26 +20,6 @@ import butterknife.BindView;
 
 public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewModel> {
 
-    @BindView(R.id.home_container)
-    FrameLayout homeContainer;
-    @BindView(R.id.radio_home)
-    LinearLayout radioHome;
-    @BindView(R.id.iv_btn_destination)
-    ImageView ivBtnDestination;
-    @BindView(R.id.radio_news)
-    LinearLayout radioNews;
-    @BindView(R.id.iv_add_fs)
-    ImageView ivAddFs;
-    @BindView(R.id.iv_btn_message)
-    ImageView ivBtnMessage;
-    @BindView(R.id.radio_events)
-    LinearLayout radioEvents;
-    @BindView(R.id.iv_btn_my_center)
-    ImageView ivBtnMyCenter;
-    @BindView(R.id.radio_my)
-    LinearLayout radioMy;
-    @BindView(R.id.ll_home)
-    LinearLayout llHome;
     private PersonalCenterFragment personalCenterFragment;
     private AddFragment addFragment;
     private EventsFragment eventsFragment;
@@ -59,8 +39,6 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
                     .findFragmentByTag(NewsFragment.class.getSimpleName());
             personalCenterFragment = (PersonalCenterFragment) getSupportFragmentManager()
                     .findFragmentByTag(PersonalCenterFragment.class.getSimpleName());
-        } else {
-            switchTo(radioHome);
         }
     }
 
@@ -123,11 +101,11 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
     }
 
     private void tabSelected(LinearLayout view) {
-        radioHome.setSelected(false);
-        radioNews.setSelected(false);
-        radioEvents.setSelected(false);
-        radioMy.setSelected(false);
-        view.setSelected(true);
+//        radioHome.setSelected(false);
+//        radioNews.setSelected(false);
+//        radioEvents.setSelected(false);
+//        radioMy.setSelected(false);
+//        view.setSelected(true);
     }
 
     @Override

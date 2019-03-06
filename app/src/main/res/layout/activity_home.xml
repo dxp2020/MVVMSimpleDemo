@@ -37,7 +37,9 @@
                 android:layout_gravity="bottom|center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                binding:onClickCommand="@{viewModel.myClick}"
+                >
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -62,7 +64,9 @@
                 android:layout_gravity="bottom|center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                binding:onClickCommand="@{viewModel.menuClickCommand}"
+                >
 
                 <ImageView
                     android:id="@+id/iv_btn_destination"
@@ -87,13 +91,15 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
 
                 <ImageView
                     android:id="@+id/iv_add_fs"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/icon_btn_add"
+                    binding:onClickCommand="@{viewModel.menuClickCommand}"
                      />
 
             </LinearLayout>
@@ -105,7 +111,9 @@
                 android:layout_gravity="bottom|center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                binding:onClickCommand="@{viewModel.menuClickCommand}"
+                >
 
                 <ImageView
                     android:id="@+id/iv_btn_message"
@@ -131,7 +139,9 @@
                 android:layout_gravity="bottom|center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                binding:onClickCommand="@{viewModel.menuClickCommand}"
+                >
 
                 <ImageView
                     android:id="@+id/iv_btn_my_center"
