@@ -4,6 +4,7 @@ import android.app.Application;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.ObservableField;
 
 import com.shangtao.base.BaseViewModel;
 import com.shangtao.binding.command.BindingAction;
@@ -19,24 +20,24 @@ public class HomeViewModel extends BaseViewModel {
     }
 
 
-    public BindingCommand menuClickCommand = new BindingCommand(() -> {
-        ToastUtils.showShort("首页2");
-//        switch (view.getId()){
-//            case R.id.radio_home:
-//                ToastUtils.showShort("首页");
-//                break;
-//            case R.id.radio_news:
-//                ToastUtils.showShort("资讯");
-//                break;
-//            case R.id.iv_add_fs:
-//                ToastUtils.showShort("添加");
-//                break;
-//            case R.id.radio_events:
-//                ToastUtils.showShort("活动");
-//                break;
-//            case R.id.radio_my:
-//                ToastUtils.showShort("我的");
-//                break;
-//        }
+    public BindingCommand menuClickCommand = new BindingCommand((BindingConsumer<View>) view -> {
+        switch (view.getId()){
+            case R.id.radio_home:
+
+                ToastUtils.showShort("首页");
+                break;
+            case R.id.radio_news:
+                ToastUtils.showShort("资讯");
+                break;
+            case R.id.iv_add_fs:
+                ToastUtils.showShort("添加");
+                break;
+            case R.id.radio_events:
+                ToastUtils.showShort("活动");
+                break;
+            case R.id.radio_my:
+                ToastUtils.showShort("我的");
+                break;
+        }
     });
 }

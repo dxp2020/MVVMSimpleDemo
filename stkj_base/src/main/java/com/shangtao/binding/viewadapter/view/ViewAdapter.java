@@ -1,6 +1,8 @@
 package com.shangtao.binding.viewadapter.view;
 
 import androidx.databinding.BindingAdapter;
+
+import android.annotation.SuppressLint;
 import android.view.View;
 
 import com.jakewharton.rxbinding2.view.RxView;
@@ -24,27 +26,24 @@ public class ViewAdapter {
      * onClickCommand 绑定的命令,
      * isThrottleFirst 是否开启防止过快点击
      */
+    @SuppressLint("CheckResult")
     @BindingAdapter(value = {"onClickCommand", "isThrottleFirst"}, requireAll = false)
     public static void onClickCommand(View view, final BindingCommand clickCommand, final boolean isThrottleFirst) {
         if (isThrottleFirst) {
             RxView.clicks(view)
-                    .subscribe(new Consumer<Object>() {
-                        @Override
-                        public void accept(Object object) throws Exception {
-                            if (clickCommand != null) {
-                                clickCommand.execute();
-                            }
+                    .subscribe(object -> {
+                        if (clickCommand != null) {
+                            clickCommand.execute();
+                            clickCommand.execute(view);
                         }
                     });
         } else {
             RxView.clicks(view)
                     .throttleFirst(CLICK_INTERVAL, TimeUnit.SECONDS)//1秒钟内只允许点击1次
-                    .subscribe(new Consumer<Object>() {
-                        @Override
-                        public void accept(Object object) throws Exception {
-                            if (clickCommand != null) {
-                                clickCommand.execute();
-                            }
+                    .subscribe(object -> {
+                        if (clickCommand != null) {
+                            clickCommand.execute();
+                            clickCommand.execute(view);
                         }
                     });
         }
@@ -56,12 +55,9 @@ public class ViewAdapter {
     @BindingAdapter(value = {"onLongClickCommand"}, requireAll = false)
     public static void onLongClickCommand(View view, final BindingCommand clickCommand) {
         RxView.longClicks(view)
-                .subscribe(new Consumer<Object>() {
-                    @Override
-                    public void accept(Object object) throws Exception {
-                        if (clickCommand != null) {
-                            clickCommand.execute();
-                        }
+                .subscribe(object -> {
+                    if (clickCommand != null) {
+                        clickCommand.execute();
                     }
                 });
     }

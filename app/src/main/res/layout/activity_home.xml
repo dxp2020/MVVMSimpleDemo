@@ -38,7 +38,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical"
-                binding:onClickCommand="@{viewModel.myClick}"
+                binding:onClickCommand="@{viewModel.menuClickCommand}"
                 >
 
                 <ImageView
@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:text="首页"
-                    android:textColor="@color/color_theme_color"
+                    android:textColor="@{viewModel.menuColor}"
                     android:textSize="11sp"
                     android:layout_marginBottom="5dp"
                     />
@@ -79,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:text="资讯"
-                    android:textColor="@color/color_333333"
+                    android:textColor="@color/color_home_bottom"
                     android:textSize="11sp"
                     android:layout_marginBottom="5dp"
                     />
@@ -126,7 +126,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:text="活动"
-                    android:textColor="@color/color_333333"
+                    android:textColor="@color/color_home_bottom"
                     android:textSize="11sp"
                     android:layout_marginBottom="5dp"
                     />
@@ -154,7 +154,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:text="个人中心"
-                    android:textColor="@color/color_333333"
+                    android:textColor="@color/color_home_bottom"
                     android:textSize="11sp"
                     android:layout_marginBottom="5dp"
                     />
