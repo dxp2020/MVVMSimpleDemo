@@ -4,6 +4,7 @@ import android.app.Application;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.ObservableBoolean;
 import androidx.databinding.ObservableField;
 
 import com.shangtao.base.BaseViewModel;
@@ -12,6 +13,7 @@ import com.shangtao.binding.command.BindingCommand;
 import com.shangtao.binding.command.BindingConsumer;
 import com.shangtao.utils.ToastUtils;
 import com.shangtao.vadk.R;
+import com.shangtao.vadk.ui.login.LoginViewModel;
 
 public class HomeViewModel extends BaseViewModel {
 
@@ -19,11 +21,16 @@ public class HomeViewModel extends BaseViewModel {
         super(application);
     }
 
+    public UIChangeObservable uc = new UIChangeObservable();
+
+    public class UIChangeObservable {
+        public ObservableField<View> mSelectedObservable = new ObservableField<>();
+    }
 
     public BindingCommand menuClickCommand = new BindingCommand((BindingConsumer<View>) view -> {
+        uc.mSelectedObservable.set(view);
         switch (view.getId()){
             case R.id.radio_home:
-
                 ToastUtils.showShort("首页");
                 break;
             case R.id.radio_news:

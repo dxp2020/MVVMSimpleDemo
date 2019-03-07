@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:text="首页"
-                    android:textColor="@{viewModel.menuColor}"
+                    android:textColor="@color/color_home_bottom"
                     android:textSize="11sp"
                     android:layout_marginBottom="5dp"
                     />

@@ -52,6 +52,7 @@ public class LoginViewModel extends BaseViewModel {
             userName.set("");
         }
     });
+
     //密码显示开关  (你可以尝试着狂按这个按钮,会发现它有防多次点击的功能)
     public BindingCommand passwordShowSwitchOnClickCommand = new BindingCommand(new BindingAction() {
         @Override
@@ -60,6 +61,7 @@ public class LoginViewModel extends BaseViewModel {
             uc.pSwitchObservable.set(!uc.pSwitchObservable.get());
         }
     });
+
     //用户名输入框焦点改变的回调事件
     public BindingCommand<Boolean> onFocusChangeCommand = new BindingCommand<>(new BindingConsumer<Boolean>() {
         @Override
@@ -71,6 +73,7 @@ public class LoginViewModel extends BaseViewModel {
             }
         }
     });
+
     //登录按钮的点击事件
     public BindingCommand loginOnClickCommand = new BindingCommand(new BindingAction() {
         @Override

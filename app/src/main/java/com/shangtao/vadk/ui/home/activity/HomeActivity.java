@@ -1,27 +1,24 @@
 package com.shangtao.vadk.ui.home.activity;
 
 import android.os.Bundle;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.shangtao.base.BaseActivity;
 import com.shangtao.vadk.BR;
 import com.shangtao.vadk.R;
 import com.shangtao.vadk.databinding.ActivityHomeBinding;
-import com.shangtao.vadk.ui.home.fragment.AddFragment;
 import com.shangtao.vadk.ui.home.fragment.EventsFragment;
 import com.shangtao.vadk.ui.home.fragment.HomeFragment;
 import com.shangtao.vadk.ui.home.fragment.NewsFragment;
 import com.shangtao.vadk.ui.home.fragment.PersonalCenterFragment;
 
+import androidx.databinding.Observable;
 import androidx.fragment.app.FragmentTransaction;
-import butterknife.BindView;
 
 public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewModel> {
 
     private PersonalCenterFragment personalCenterFragment;
-    private AddFragment addFragment;
     private EventsFragment eventsFragment;
     private HomeFragment homeFragment;
     private NewsFragment newsFragment;
@@ -29,28 +26,46 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
     @Override
     public void initData() {
         if (savedInstanceState != null) {
-            addFragment = (AddFragment) getSupportFragmentManager()
-                    .findFragmentByTag(AddFragment.class.getSimpleName());
-            eventsFragment = (EventsFragment) getSupportFragmentManager()
-                    .findFragmentByTag(EventsFragment.class.getSimpleName());
             homeFragment = (HomeFragment) getSupportFragmentManager()
                     .findFragmentByTag(HomeFragment.class.getSimpleName());
             newsFragment = (NewsFragment) getSupportFragmentManager()
                     .findFragmentByTag(NewsFragment.class.getSimpleName());
+            eventsFragment = (EventsFragment) getSupportFragmentManager()
+                    .findFragmentByTag(EventsFragment.class.getSimpleName());
             personalCenterFragment = (PersonalCenterFragment) getSupportFragmentManager()
                     .findFragmentByTag(PersonalCenterFragment.class.getSimpleName());
+        } else {
+            switchTo(binding.radioHome);
         }
     }
 
-    /**
-     * 跳转到指定fragment
-     */
-    private void switchTo(LinearLayout view) {
-        if (view == null) {
-            return;
-        }
-        selectedFragment(view);
-        tabSelected(view);
+    @Override
+    public void initViewObservable() {
+        viewModel.uc.mSelectedObservable.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+            @Override
+            public void onPropertyChanged(Observable sender, int propertyId) {
+                View view = viewModel.uc.mSelectedObservable.get();
+                if(view==null){
+                    return;
+                }
+                int viewId = view.getId();
+                switch (viewId){
+                    case R.id.radio_home:
+                        tabSelected(binding.radioHome);
+                        break;
+                    case R.id.radio_news:
+                        tabSelected(binding.radioNews);
+                        break;
+                    case R.id.radio_events:
+                        tabSelected(binding.radioEvents);
+                        break;
+                    case R.id.radio_my:
+                        tabSelected(binding.radioMy);
+                        break;
+                }
+            }
+        });
+
     }
 
     private void selectedFragment(LinearLayout view) {
@@ -101,11 +116,22 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
     }
 
     private void tabSelected(LinearLayout view) {
-//        radioHome.setSelected(false);
-//        radioNews.setSelected(false);
-//        radioEvents.setSelected(false);
-//        radioMy.setSelected(false);
-//        view.setSelected(true);
+        binding.radioHome.setSelected(false);
+        binding.radioNews.setSelected(false);
+        binding.radioEvents.setSelected(false);
+        binding.radioMy.setSelected(false);
+        view.setSelected(true);
+    }
+
+    /**
+     * 跳转到指定fragment
+     */
+    private void switchTo(LinearLayout view) {
+        if (view == null) {
+            return;
+        }
+        selectedFragment(view);
+        tabSelected(view);
     }
 
     @Override
@@ -117,6 +143,5 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
     public int initVariableId() {
         return BR.viewModel;
     }
-
 
 }
