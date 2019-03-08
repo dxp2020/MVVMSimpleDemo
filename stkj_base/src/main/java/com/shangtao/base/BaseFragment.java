@@ -1,14 +1,5 @@
 package com.shangtao.base;
 
-import androidx.annotation.Nullable;
-import androidx.databinding.DataBindingUtil;
-import androidx.databinding.ViewDataBinding;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProviders;
-import butterknife.ButterKnife;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,15 +7,22 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.shangtao.base.BaseViewModel.ParameterField;
+import com.shangtao.bus.Messenger;
+import com.shangtao.utils.MaterialDialogUtils;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Map;
 
-import com.shangtao.base.BaseViewModel.ParameterField;
-import com.shangtao.bus.Messenger;
-import com.shangtao.utils.MaterialDialogUtils;
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProviders;
 
 /**
  * Created by goldze on 2017/6/15.
