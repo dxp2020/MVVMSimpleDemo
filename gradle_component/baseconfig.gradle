@@ -93,4 +93,6 @@ dependencies {
     api rootProject.ext.OTHERDEPS.lifecycle_compiler
     api rootProject.ext.OTHERDEPS.leakcanary
 
+    api rootProject.ext.MULALIBS.mula_refresh
+
 }

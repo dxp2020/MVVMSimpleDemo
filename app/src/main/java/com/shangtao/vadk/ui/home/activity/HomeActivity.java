@@ -12,7 +12,6 @@ import com.shangtao.vadk.ui.home.fragment.EventsFragment;
 import com.shangtao.vadk.ui.home.fragment.HomeFragment;
 import com.shangtao.vadk.ui.home.fragment.NewsFragment;
 import com.shangtao.vadk.ui.home.fragment.PersonalCenterFragment;
-
 import androidx.databinding.Observable;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -51,16 +50,16 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
                 int viewId = view.getId();
                 switch (viewId){
                     case R.id.radio_home:
-                        tabSelected(binding.radioHome);
+                        switchTo(binding.radioHome);
                         break;
                     case R.id.radio_news:
-                        tabSelected(binding.radioNews);
+                        switchTo(binding.radioNews);
                         break;
                     case R.id.radio_events:
-                        tabSelected(binding.radioEvents);
+                        switchTo(binding.radioEvents);
                         break;
                     case R.id.radio_my:
-                        tabSelected(binding.radioMy);
+                        switchTo(binding.radioMy);
                         break;
                 }
             }

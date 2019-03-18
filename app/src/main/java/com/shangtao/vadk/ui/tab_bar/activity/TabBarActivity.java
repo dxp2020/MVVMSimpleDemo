@@ -79,8 +79,7 @@ public class TabBarActivity extends BaseActivity<ActivityTabBarBinding, BaseView
             }
 
             @Override
-            public void onRepeat(int index) {
-            }
+            public void onRepeat(int index) {}
         });
     }
 }

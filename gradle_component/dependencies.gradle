@@ -87,5 +87,6 @@ ext {
     ]
 
     MULALIBS = [
+            mula_refresh       : "com.mula:refresh:1.0.1",
     ]
 }
