@@ -4,7 +4,18 @@ import android.app.Application;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.util.Log;
+
+import com.shangtao.base.BaseViewModel;
+import com.shangtao.binding.command.BindingCommand;
+import com.shangtao.utils.ToastUtils;
+import com.shangtao.vadk.BR;
+import com.shangtao.vadk.R;
+import com.shangtao.vadk.entity.DkAppEntity;
+
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
+
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.ObservableArrayList;
@@ -12,43 +23,14 @@ import androidx.databinding.ObservableBoolean;
 import androidx.databinding.ObservableList;
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
-import io.reactivex.FlowableEmitter;
 import io.reactivex.FlowableOnSubscribe;
-import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Action;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter;
 import me.tatarka.bindingcollectionadapter2.ItemBinding;
 
-import com.shangtao.base.BaseViewModel;
-import com.shangtao.binding.command.BindingAction;
-import com.shangtao.binding.command.BindingCommand;
-import com.shangtao.http.BaseResponse;
-import com.shangtao.http.ResponseThrowable;
-import com.shangtao.utils.RxUtils;
-import com.shangtao.utils.ToastUtils;
-import com.shangtao.vadk.BR;
-import com.shangtao.vadk.R;
-import com.shangtao.vadk.entity.DemoEntity;
-import com.shangtao.vadk.entity.DkAppEntity;
-import com.shangtao.vadk.service.DemoApiService;
-import com.shangtao.vadk.ui.network.NetWorkItemViewModel;
-import com.shangtao.vadk.ui.network.NetWorkViewModel;
-import com.shangtao.vadk.utils.RetrofitClient;
-
-import org.reactivestreams.Subscriber;
-import org.reactivestreams.Subscription;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 public class HomeViewModel extends BaseViewModel {
     private int itemIndex = 0;
-    public ObservableList<NetWorkItemViewModel> observableList = new ObservableArrayList<>();
 
     public HomeViewModel(@NonNull Application application) {
         super(application);
@@ -68,10 +50,12 @@ public class HomeViewModel extends BaseViewModel {
     }
 
     //给RecyclerView添加Adpter，请使用自定义的Adapter继承BindingRecyclerViewAdapter，重写onBindBinding方法，里面有你要的Item对应的binding对象
-    public final BindingRecyclerViewAdapter<NetWorkItemViewModel> adapter = new BindingRecyclerViewAdapter<>();
+    public final BindingRecyclerViewAdapter<ApItemViewModel> adapter = new BindingRecyclerViewAdapter<>();
 
     //给RecyclerView添加ItemBinding
-    public ItemBinding<NetWorkItemViewModel> itemBinding = ItemBinding.of(BR.viewModel, R.layout.item_network);
+    public ItemBinding<ApItemViewModel> itemBinding = ItemBinding.of(BR.viewModel, R.layout.item_added_ap);
+
+    public ObservableList<ApItemViewModel> observableList = new ObservableArrayList<>();
 
     //下拉刷新
     public BindingCommand onRefreshCommand = new BindingCommand(() -> {
@@ -82,37 +66,42 @@ public class HomeViewModel extends BaseViewModel {
      * 网络请求方法，在ViewModel中调用，Retrofit+RxJava充当Repository，即可视为Model层
      */
     private void requestNetWork() {
-        Flowable.create((FlowableOnSubscribe<List<DkAppEntity>>) emitter -> {
-            List<DkAppEntity> list = new ArrayList<>();
-
+        Flowable.create((FlowableOnSubscribe<DkAppEntity>) emitter -> {
             PackageManager pm = getApplication().getPackageManager();
             List<PackageInfo> packages = pm.getInstalledPackages(0);
             for (PackageInfo packageInfo : packages) {
-                // 判断系统/非系统应用
                 if ((packageInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) // 非系统应用
                 {
-                    list.add(new DkAppEntity(packageInfo.applicationInfo.icon,packageInfo.packageName));
+                    DkAppEntity appInfo = new DkAppEntity();
+                    appInfo.setAppName(packageInfo.applicationInfo.loadLabel(pm).toString());//获取应用名称
+                    appInfo.setPackageName(packageInfo.packageName); //获取应用包名，可用于卸载和启动应用
+                    appInfo.setVersionName(packageInfo.versionName);//获取应用版本名
+                    appInfo.setVersionCode(packageInfo.versionCode);//获取应用版本号
+                    appInfo.setAppIcon(packageInfo.applicationInfo.loadIcon(pm));//获取应用图标
+                    emitter.onNext(appInfo);
                 }
             }
             emitter.onComplete();
-        }, BackpressureStrategy.BUFFER)
+        },BackpressureStrategy.BUFFER)
         .subscribeOn(Schedulers.newThread())
         .observeOn(AndroidSchedulers.mainThread())
-        .subscribe(new Subscriber<List<DkAppEntity>>() {
+        .subscribe(new Subscriber<DkAppEntity>() {
             @Override
-            public void onSubscribe(Subscription s) {}
+            public void onSubscribe(Subscription s) {
+                s.request(Long.MAX_VALUE);
+            }
             @Override
-            public void onNext(List<DkAppEntity> list) {
-
+            public void onNext(DkAppEntity dkAppEntity) {
+                observableList.add(new ApItemViewModel(HomeViewModel.this,dkAppEntity));
             }
             @Override
             public void onComplete() {
                 ToastUtils.showShort("应用加载完成！");
-                uc.finishRefreshing.set(!uc.finishRefreshing.get());
+//                uc.finishRefreshing.set(!uc.finishRefreshing.get());
             }
             @Override
             public void onError(Throwable t) {
-                t.fillInStackTrace();
+                t.printStackTrace();
             }
         });
         /*RetrofitClient.getInstance().create(DemoApiService.class)

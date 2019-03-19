@@ -1,11 +1,51 @@
 package com.shangtao.vadk.entity;
 
-public class DkAppEntity {
-    private int app_icon;
-    private String app_name;
+import android.graphics.drawable.Drawable;
 
-    public DkAppEntity(int app_icon, String app_name) {
-        this.app_icon = app_icon;
-        this.app_name = app_name;
+public class DkAppEntity {
+    private String appName;
+    private String packageName;
+    private String versionName;
+    private int versionCode;
+    private Drawable appIcon;
+
+    public String getAppName() {
+        return appName;
+    }
+
+    public void setAppName(String appName) {
+        this.appName = appName;
+    }
+
+    public String getPackageName() {
+        return packageName;
+    }
+
+    public void setPackageName(String packageName) {
+        this.packageName = packageName;
+    }
+
+    public String getVersionName() {
+        return versionName;
+    }
+
+    public void setVersionName(String versionName) {
+        this.versionName = versionName;
+    }
+
+    public int getVersionCode() {
+        return versionCode;
+    }
+
+    public void setVersionCode(int versionCode) {
+        this.versionCode = versionCode;
+    }
+
+    public Drawable getAppIcon() {
+        return appIcon;
+    }
+
+    public void setAppIcon(Drawable appIcon) {
+        this.appIcon = appIcon;
     }
 }

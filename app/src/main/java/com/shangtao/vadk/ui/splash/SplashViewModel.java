@@ -22,6 +22,12 @@ public class SplashViewModel extends BaseViewModel {
         super(application);
     }
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        startCountDown();
+    }
+
     public ObservableField<String> countDownContent = new ObservableField<>("跳过 3");
 
     //跳转到首页的点击事件, 逻辑从View层转换到ViewModel层

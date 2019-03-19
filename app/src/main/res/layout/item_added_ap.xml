@@ -2,13 +2,10 @@
 <layout>
 
     <data>
-
-        <import type="com.shangtao.vadk.ui.network.NetWorkItemViewModel" />
-
+        <import type="com.shangtao.vadk.ui.home.fragment.ApItemViewModel" />
         <variable
             name="viewModel"
-            type="com.shangtao.vadk.ui.network.NetWorkItemViewModel" />
-
+            type="com.shangtao.vadk.ui.home.fragment.ApItemViewModel" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -25,14 +22,14 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@{viewModel.drawableImg}"
-            binding:url="@{viewModel.entity.img}" />
+            android:src="@{viewModel.entity.appIcon}" />
 
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
-            android:text="@{viewModel.entity.name}" />
+            android:text="@{viewModel.entity.appName}" />
     </LinearLayout>
+
 </layout>

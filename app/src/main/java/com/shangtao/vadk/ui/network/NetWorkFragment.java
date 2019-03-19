@@ -59,24 +59,15 @@ public class NetWorkFragment extends BaseFragment<FragmentNetworkBinding, NetWor
             }
         });
         //监听删除条目
-        viewModel.deleteItemLiveData.observe(this, new Observer<NetWorkItemViewModel>() {
-            @Override
-            public void onChanged(@Nullable final NetWorkItemViewModel netWorkItemViewModel) {
-                int index = viewModel.getPosition(netWorkItemViewModel);
-                //删除选择对话框
-                MaterialDialogUtils.showBasicDialog(getContext(), "提示", "是否删除【" + netWorkItemViewModel.entity.get().getName() + "】？ position：" + index)
-                        .onNegative(new MaterialDialog.SingleButtonCallback() {
-                            @Override
-                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                                ToastUtils.showShort("取消");
-                            }
-                        }).onPositive(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        viewModel.deleteItem(netWorkItemViewModel);
-                    }
-                }).show();
-            }
+        viewModel.deleteItemLiveData.observe(this, netWorkItemViewModel -> {
+            int index = viewModel.getPosition(netWorkItemViewModel);
+            //删除选择对话框
+            MaterialDialogUtils.showBasicDialog(getContext(),
+                    "提示",
+                    "是否删除【" + netWorkItemViewModel.entity.get().getName() + "】？ position：" + index)
+                    .onNegative((dialog, which) -> ToastUtils.showShort("取消"))
+                    .onPositive((dialog, which) -> viewModel.deleteItem(netWorkItemViewModel))
+                    .show();
         });
     }
 }

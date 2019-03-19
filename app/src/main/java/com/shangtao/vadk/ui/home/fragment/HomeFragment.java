@@ -28,11 +28,11 @@ public class HomeFragment  extends BaseFragment<FragmentHomeBinding, HomeViewMod
     public void initViewObservable() {
         super.initViewObservable();
         //监听下拉刷新完成
-        viewModel.uc.finishRefreshing.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+        /*viewModel.uc.finishRefreshing.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
             @Override
             public void onPropertyChanged(Observable observable, int i) {
                 binding.prlvListview.onRefreshComplete();
             }
-        });
+        });*/
     }
 }

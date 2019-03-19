@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:binding="http://schemas.android.com/apk/res-auto"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     >
 
     <data>
         <variable
             name="viewModel"
             type="com.shangtao.vadk.ui.home.fragment.HomeViewModel" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <import type="com.shangtao.binding.viewadapter.recyclerview.LineManagers" />
     </data>
 
     <LinearLayout
@@ -15,11 +18,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.handmark.pulltorefresh.library.PullToRefreshListView
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            binding:adapter="@{viewModel.adapter}"
+            binding:itemBinding="@{viewModel.itemBinding}"
+            binding:items="@{viewModel.observableList}"
+            binding:layoutManager="@{LayoutManagers.linear()}"
+            binding:lineManager="@{LineManagers.horizontal()}" />
+
+        <!--<com.handmark.pulltorefresh.library.PullToRefreshListView
             android:id="@+id/prlv_listview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            binding:onLoadMoreCommand="@{viewModel.onLoadMoreCommand}"
             binding:onRefreshCommand="@{viewModel.onRefreshCommand}"
             >
 
@@ -32,7 +43,7 @@
                 binding:layoutManager="@{LayoutManagers.linear()}"
                 binding:lineManager="@{LineManagers.horizontal()}" />
 
-        </com.handmark.pulltorefresh.library.PullToRefreshListView>
+        </com.handmark.pulltorefresh.library.PullToRefreshListView>-->
 
     </LinearLayout>
 
