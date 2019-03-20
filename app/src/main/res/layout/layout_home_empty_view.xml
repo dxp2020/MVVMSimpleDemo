@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="免ROOT支持应用多开 机型伪装 虚拟定位 红包助手等各种趣味插件。"
+            android:textColor="@color/color_333333"
+            android:textSize="18sp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="60dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="30dp"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/icon_btn_wxdk"
+                android:text="应用多开"
+                android:textSize="16dp"
+                android:textColor="@color/color_333333"
+                android:layout_weight="1"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/icon_btn_ffs"
+                android:text="分身锁"
+                android:textSize="16dp"
+                android:textColor="@color/color_333333"
+                android:layout_weight="1"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/icon_btn_jxwz"
+                android:text="机型伪装"
+                android:textSize="16dp"
+                android:textColor="@color/color_333333"
+                android:layout_weight="1"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/icon_btn_xndw"
+                android:text="虚拟定位"
+                android:textSize="16dp"
+                android:textColor="@color/color_333333"
+                android:layout_weight="1"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/icon_btn_hbtx"
+                android:text="红包助手"
+                android:textSize="16dp"
+                android:textColor="@color/color_333333"
+                android:layout_weight="1"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

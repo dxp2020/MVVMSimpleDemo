@@ -1,9 +1,6 @@
 package com.shangtao.vadk.ui.home.fragment;
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.databinding.Observable;
-
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -11,6 +8,8 @@ import com.shangtao.base.BaseFragment;
 import com.shangtao.vadk.BR;
 import com.shangtao.vadk.R;
 import com.shangtao.vadk.databinding.FragmentHomeBinding;
+
+import androidx.annotation.Nullable;
 
 public class HomeFragment  extends BaseFragment<FragmentHomeBinding, HomeViewModel> {
 
