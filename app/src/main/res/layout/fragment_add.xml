@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.shangtao.vadk.ui.home.fragment.AddViewModel" />
+            type="com.shangtao.vadk.ui.home.add.AddViewModel" />
     </data>
 
     <LinearLayout

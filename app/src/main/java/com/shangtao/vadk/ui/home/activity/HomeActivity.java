@@ -8,10 +8,11 @@ import com.shangtao.base.BaseActivity;
 import com.shangtao.vadk.BR;
 import com.shangtao.vadk.R;
 import com.shangtao.vadk.databinding.ActivityHomeBinding;
-import com.shangtao.vadk.ui.home.fragment.EventsFragment;
-import com.shangtao.vadk.ui.home.fragment.HomeFragment;
-import com.shangtao.vadk.ui.home.fragment.NewsFragment;
-import com.shangtao.vadk.ui.home.fragment.PersonalCenterFragment;
+import com.shangtao.vadk.ui.home.center.PersonalCenterFragment;
+import com.shangtao.vadk.ui.home.events.EventsFragment;
+import com.shangtao.vadk.ui.home.home.HomeFragment;
+import com.shangtao.vadk.ui.home.news.NewsFragment;
+
 import androidx.databinding.Observable;
 import androidx.fragment.app.FragmentTransaction;
 

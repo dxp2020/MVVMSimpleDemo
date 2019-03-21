@@ -2,10 +2,9 @@
 <layout>
 
     <data>
-        <import type="com.shangtao.vadk.ui.home.fragment.ApItemViewModel" />
         <variable
             name="viewModel"
-            type="com.shangtao.vadk.ui.home.fragment.ApItemViewModel" />
+            type="com.shangtao.vadk.ui.home.home.ApItemViewModel" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

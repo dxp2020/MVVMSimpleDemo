@@ -1,7 +1,8 @@
-package com.shangtao.vadk.ui.home.fragment;
+package com.shangtao.vadk.ui.home.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.shangtao.base.BaseFragment;
@@ -33,5 +34,10 @@ public class HomeFragment  extends BaseFragment<FragmentHomeBinding, HomeViewMod
                 binding.prlvListview.onRefreshComplete();
             }
         });*/
+    }
+
+    @Override
+    public void initData() {
+        binding.rvApList.setEmptyView(View.inflate(getActivity(),R.layout.layout_home_empty_view,null));
     }
 }

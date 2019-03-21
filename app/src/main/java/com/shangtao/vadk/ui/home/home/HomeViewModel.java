@@ -1,4 +1,4 @@
-package com.shangtao.vadk.ui.home.fragment;
+package com.shangtao.vadk.ui.home.home;
 
 import android.app.Application;
 import android.content.pm.ApplicationInfo;
@@ -35,7 +35,7 @@ public class HomeViewModel extends BaseViewModel {
     @Override
     public void onCreate() {
         super.onCreate();
-        requestNetWork();
+//        requestNetWork();
     }
 
     //给RecyclerView添加Adpter，请使用自定义的Adapter继承BindingRecyclerViewAdapter，重写onBindBinding方法，里面有你要的Item对应的binding对象

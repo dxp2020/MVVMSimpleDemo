@@ -1,4 +1,4 @@
-package com.shangtao.vadk.ui.home.fragment;
+package com.shangtao.vadk.ui.home.home;
 
 import com.shangtao.base.ItemViewModel;
 import com.shangtao.binding.command.BindingAction;

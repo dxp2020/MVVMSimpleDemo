@@ -1,4 +1,4 @@
-package com.shangtao.vadk.ui.home.fragment;
+package com.shangtao.vadk.ui.home.news;
 
 import android.os.Bundle;
 import androidx.annotation.Nullable;

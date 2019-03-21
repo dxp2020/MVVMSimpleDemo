@@ -1,4 +1,4 @@
-package com.shangtao.vadk.ui.home.fragment;
+package com.shangtao.vadk.ui.home.events;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
