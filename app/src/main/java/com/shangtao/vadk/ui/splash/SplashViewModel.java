@@ -45,9 +45,9 @@ public class SplashViewModel extends BaseViewModel {
         Flowable.intervalRange(1, 4, 1, 1, TimeUnit.SECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .compose(RxUtils.bindToLifecycle(getLifecycleProvider()))//界面关闭自动取消
-                .subscribe((Consumer<Long>) aLong -> {
-                    if((3 - aLong)>=0){
-                        countDownContent.set("跳过 " + String.valueOf(3 - aLong));
+                .subscribe((Consumer<Long>) count -> {
+                    if((3 - count)>=0){
+                        countDownContent.set("跳过 " + String.valueOf(3 - count));
                     }else{
                         startActivity(HomeActivity.class);
                         finish();

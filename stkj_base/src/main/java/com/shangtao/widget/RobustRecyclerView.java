@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 public class RobustRecyclerView extends RecyclerView {
 
     private View emptyView;
-    private static final String TAG = "RobustRecyclerView";
 
     public RobustRecyclerView(@NonNull Context context) {
         super(context);

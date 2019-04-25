@@ -11,6 +11,7 @@ import com.shangtao.vadk.R;
 import com.shangtao.vadk.databinding.FragmentHomeBinding;
 
 import androidx.annotation.Nullable;
+import androidx.databinding.Observable;
 
 public class HomeFragment  extends BaseFragment<FragmentHomeBinding, HomeViewModel> {
 
@@ -28,12 +29,21 @@ public class HomeFragment  extends BaseFragment<FragmentHomeBinding, HomeViewMod
     public void initViewObservable() {
         super.initViewObservable();
         //监听下拉刷新完成
-        /*viewModel.uc.finishRefreshing.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+        viewModel.uc.finishRefreshing.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
             @Override
             public void onPropertyChanged(Observable observable, int i) {
-                binding.prlvListview.onRefreshComplete();
+                //结束刷新
+                binding.twinklingRefreshLayout.finishRefreshing();
             }
-        });*/
+        });
+        //监听上拉加载完成
+        viewModel.uc.finishLoadmore.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+            @Override
+            public void onPropertyChanged(Observable observable, int i) {
+                //结束刷新
+                binding.twinklingRefreshLayout.finishLoadmore();
+            }
+        });
     }
 
     @Override

@@ -18,24 +18,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.shangtao.widget.RobustRecyclerView
-            android:id="@+id/rv_ap_list"
+        <com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
+            android:id="@+id/twinklingRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            binding:adapter="@{viewModel.adapter}"
-            binding:itemBinding="@{viewModel.itemBinding}"
-            binding:items="@{viewModel.observableList}"
-            binding:layoutManager="@{LayoutManagers.linear()}"
-            binding:lineManager="@{LineManagers.horizontal()}" />
-
-        <!--<com.handmark.pulltorefresh.library.PullToRefreshListView
-            android:id="@+id/prlv_listview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            binding:onLoadMoreCommand="@{viewModel.onLoadMoreCommand}"
             binding:onRefreshCommand="@{viewModel.onRefreshCommand}"
-            >
+            binding:tr_head_height="80dp"
+            binding:tr_wave_height="80dp">
 
-            <androidx.recyclerview.widget.RecyclerView
+            <com.shangtao.widget.RobustRecyclerView
+                android:id="@+id/rv_ap_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 binding:adapter="@{viewModel.adapter}"
@@ -44,7 +37,7 @@
                 binding:layoutManager="@{LayoutManagers.linear()}"
                 binding:lineManager="@{LineManagers.horizontal()}" />
 
-        </com.handmark.pulltorefresh.library.PullToRefreshListView>-->
+        </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
 
     </LinearLayout>
 

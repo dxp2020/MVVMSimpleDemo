@@ -1,5 +1,7 @@
 package com.shangtao.binding.viewadapter.recyclerview;
 
+import android.annotation.SuppressLint;
+
 import androidx.databinding.BindingAdapter;
 
 import java.util.concurrent.TimeUnit;
@@ -53,7 +55,6 @@ public class ViewAdapter {
     public static void onLoadMoreCommand(final RecyclerView recyclerView, final BindingCommand<Integer> onLoadMoreCommand) {
         RecyclerView.OnScrollListener listener = new OnScrollListener(onLoadMoreCommand);
         recyclerView.addOnScrollListener(listener);
-
     }
 
     public static class OnScrollListener extends RecyclerView.OnScrollListener {
@@ -62,15 +63,11 @@ public class ViewAdapter {
 
         private BindingCommand<Integer> onLoadMoreCommand;
 
+        @SuppressLint("CheckResult")
         public OnScrollListener(final BindingCommand<Integer> onLoadMoreCommand) {
             this.onLoadMoreCommand = onLoadMoreCommand;
             methodInvoke.throttleFirst(1, TimeUnit.SECONDS)
-                    .subscribe(new Consumer<Integer>() {
-                        @Override
-                        public void accept(Integer integer) throws Exception {
-                            onLoadMoreCommand.execute(integer);
-                        }
-                    });
+                    .subscribe(integer -> onLoadMoreCommand.execute(integer));
         }
 
         @Override
