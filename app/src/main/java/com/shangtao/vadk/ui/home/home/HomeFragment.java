@@ -2,16 +2,17 @@ package com.shangtao.vadk.ui.home.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.Nullable;
+import androidx.databinding.Observable;
+
+import com.lcodecore.tkrefreshlayout.footer.LoadingView;
+import com.lcodecore.tkrefreshlayout.header.SinaRefreshView;
 import com.shangtao.base.BaseFragment;
 import com.shangtao.vadk.BR;
 import com.shangtao.vadk.R;
 import com.shangtao.vadk.databinding.FragmentHomeBinding;
-
-import androidx.annotation.Nullable;
-import androidx.databinding.Observable;
 
 public class HomeFragment  extends BaseFragment<FragmentHomeBinding, HomeViewModel> {
 
@@ -48,6 +49,14 @@ public class HomeFragment  extends BaseFragment<FragmentHomeBinding, HomeViewMod
 
     @Override
     public void initData() {
-        binding.rvApList.setEmptyView(View.inflate(getActivity(),R.layout.layout_home_empty_view,null));
+        //刷新、加载View 可定制、替换
+        SinaRefreshView headerView = new SinaRefreshView(getContext());
+        headerView.setArrowResource(R.mipmap.refresh_head_arrow);
+        headerView.setTextColor(0xff745D5C);
+        binding.twinklingRefreshLayout.setHeaderView(headerView);
+        LoadingView loadingView = new LoadingView(getContext());
+        binding.twinklingRefreshLayout.setBottomView(loadingView);
+
+        binding.rvApList.setEmptyView(binding.llEmptyView);
     }
 }

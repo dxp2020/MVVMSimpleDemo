@@ -74,6 +74,7 @@ dependencies {
 
     api rootProject.ext.OTHERDEPS.eventbus
     api rootProject.ext.OTHERDEPS.androidutils
+    api rootProject.ext.OTHERDEPS.utilcode
     api rootProject.ext.OTHERDEPS.rxlifecycle
     api rootProject.ext.OTHERDEPS.rxlifecycle_components
     api rootProject.ext.OTHERDEPS.glide

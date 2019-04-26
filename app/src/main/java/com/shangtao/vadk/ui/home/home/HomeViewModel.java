@@ -6,6 +6,11 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
+import androidx.annotation.NonNull;
+import androidx.databinding.ObservableArrayList;
+import androidx.databinding.ObservableBoolean;
+import androidx.databinding.ObservableList;
+
 import com.shangtao.base.BaseViewModel;
 import com.shangtao.binding.command.BindingAction;
 import com.shangtao.binding.command.BindingCommand;
@@ -13,10 +18,7 @@ import com.shangtao.utils.RxUtils;
 import com.shangtao.utils.ToastUtils;
 import com.shangtao.vadk.BR;
 import com.shangtao.vadk.R;
-import com.shangtao.vadk.entity.DemoEntity;
 import com.shangtao.vadk.entity.DkAppEntity;
-import com.shangtao.vadk.ui.network.NetWorkItemViewModel;
-import com.shangtao.vadk.ui.network.NetWorkViewModel;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
@@ -25,16 +27,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import androidx.annotation.NonNull;
-import androidx.databinding.ObservableArrayList;
-import androidx.databinding.ObservableBoolean;
-import androidx.databinding.ObservableList;
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableOnSubscribe;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter;
@@ -60,7 +57,6 @@ public class HomeViewModel extends BaseViewModel {
     @Override
     public void onCreate() {
         super.onCreate();
-        loadData();
     }
 
     //下拉刷新
@@ -76,7 +72,7 @@ public class HomeViewModel extends BaseViewModel {
         @SuppressLint("CheckResult")
         @Override
         public void call() {
-
+            loadMore();
         }
     });
 
