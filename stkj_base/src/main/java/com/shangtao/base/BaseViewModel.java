@@ -29,8 +29,6 @@ public class BaseViewModel extends AndroidViewModel implements IBaseViewModel {
 
     /**
      * 注入RxLifecycle生命周期
-     *
-     * @param lifecycle
      */
     public void injectLifecycleProvider(LifecycleProvider lifecycle) {
         this.lifecycle = lifecycle;

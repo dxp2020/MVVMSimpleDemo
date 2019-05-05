@@ -14,4 +14,5 @@ public class ItemViewModel<VM extends BaseViewModel> {
     public ItemViewModel(@NonNull VM viewModel) {
         this.viewModel = viewModel;
     }
+
 }

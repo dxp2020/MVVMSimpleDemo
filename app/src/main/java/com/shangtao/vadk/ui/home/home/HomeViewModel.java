@@ -9,8 +9,10 @@ import android.content.pm.PackageManager;
 import androidx.annotation.NonNull;
 import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableBoolean;
+import androidx.databinding.ObservableDouble;
 import androidx.databinding.ObservableList;
 
+import com.blankj.utilcode.util.ScreenUtils;
 import com.shangtao.base.BaseViewModel;
 import com.shangtao.binding.command.BindingAction;
 import com.shangtao.binding.command.BindingCommand;
@@ -50,13 +52,14 @@ public class HomeViewModel extends BaseViewModel {
 
     public ObservableList<ApItemViewModel> observableList = new ObservableArrayList<>();
 
+    public ObservableDouble headHeightObservable = new ObservableDouble();
+
+    public ObservableDouble footHeightObservable = new ObservableDouble();
+
     public HomeViewModel(@NonNull Application application) {
         super(application);
-    }
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
+        headHeightObservable.set(ScreenUtils.getScreenHeight()/2);
+        footHeightObservable.set(ScreenUtils.getScreenHeight()/2);
     }
 
     //下拉刷新

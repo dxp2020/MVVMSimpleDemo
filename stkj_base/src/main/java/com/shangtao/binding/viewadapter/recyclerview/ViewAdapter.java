@@ -3,14 +3,14 @@ package com.shangtao.binding.viewadapter.recyclerview;
 import android.annotation.SuppressLint;
 
 import androidx.databinding.BindingAdapter;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.shangtao.binding.command.BindingCommand;
 
 import java.util.concurrent.TimeUnit;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import io.reactivex.functions.Consumer;
 import io.reactivex.subjects.PublishSubject;
-import com.shangtao.binding.command.BindingCommand;
 
 /**
  * Created by goldze on 2017/6/16.
@@ -21,7 +21,6 @@ public class ViewAdapter {
     public static void setLineManager(RecyclerView recyclerView, LineManagers.LineManagerFactory lineManagerFactory) {
         recyclerView.addItemDecoration(lineManagerFactory.create(recyclerView));
     }
-
 
     @BindingAdapter(value = {"onScrollChangeCommand", "onScrollStateChangedCommand"}, requireAll = false)
     public static void onScrollChangeCommand(final RecyclerView recyclerView,

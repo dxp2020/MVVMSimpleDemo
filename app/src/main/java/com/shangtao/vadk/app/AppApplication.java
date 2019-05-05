@@ -7,6 +7,7 @@ import com.shangtao.vadk.ui.login.LoginActivity;
 import com.shangtao.base.BaseApplication;
 import com.shangtao.crash.CaocConfig;
 import com.shangtao.utils.KLog;
+import com.squareup.leakcanary.LeakCanary;
 
 /**
  * Created by goldze on 2017/7/16.
@@ -21,9 +22,9 @@ public class AppApplication extends BaseApplication {
         //初始化全局异常崩溃
         initCrash();
         //内存泄漏检测
-//        if (!LeakCanary.isInAnalyzerProcess(this)) {
-//            LeakCanary.install(this);
-//        }
+        if (!LeakCanary.isInAnalyzerProcess(this)) {
+            LeakCanary.install(this);
+        }
     }
 
     private void initCrash() {

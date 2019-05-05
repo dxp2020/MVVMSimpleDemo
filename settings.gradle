@@ -1,1 +1,1 @@
-include ':app', ':stkj_base'
+include ':app', ':stkj_base', ':TwinklingRefreshLayout'

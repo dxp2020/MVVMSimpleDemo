@@ -36,12 +36,12 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    //下拉刷新,上拉加载
-    implementation 'com.lcodecorex:tkrefreshlayout:1.0.7'
     //底部tabBar
     implementation ('me.majiajie:pager-bottom-tab-strip:2.2.5'){
         exclude group: 'com.android.support'
     }
     //MVVMHabit
     implementation project(':stkj_base')
+    //下拉刷新上拉加载框架
+    implementation project(':TwinklingRefreshLayout')
 }

@@ -71,4 +71,5 @@ public class BindingCommand<T> {
         }
         return canExecute0.call();
     }
+
 }

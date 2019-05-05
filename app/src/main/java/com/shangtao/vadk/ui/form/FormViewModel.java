@@ -93,6 +93,7 @@ public class FormViewModel extends ToolbarViewModel {
             entity.setSex(iKeyAndValue.getValue());
         }
     });
+
     //生日选择的监听
     public BindingCommand onBirClickCommand = new BindingCommand(new BindingAction() {
         @Override
@@ -101,6 +102,7 @@ public class FormViewModel extends ToolbarViewModel {
             uc.showDateDialogObservable.set(!uc.showDateDialogObservable.get());
         }
     });
+
     //是否已婚Switch点状态改变回调
     public BindingCommand<Boolean> onMarryCheckedChangeCommand = new BindingCommand<>(new BindingConsumer<Boolean>() {
         @Override
@@ -108,6 +110,7 @@ public class FormViewModel extends ToolbarViewModel {
             entity.setMarry(isChecked);
         }
     });
+
     //提交按钮点击事件
     public BindingCommand onCmtClickCommand = new BindingCommand(new BindingAction() {
         @Override

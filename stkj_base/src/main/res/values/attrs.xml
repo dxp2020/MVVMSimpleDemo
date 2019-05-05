@@ -96,6 +96,7 @@
         <attr name="itemBinding" format="reference" />
         <attr name="layoutManager" format="reference" />
     </declare-styleable>
+
     <declare-styleable name="RadioGroup">
         <attr name="onCheckedChangedCommand" format="reference" />
     </declare-styleable>

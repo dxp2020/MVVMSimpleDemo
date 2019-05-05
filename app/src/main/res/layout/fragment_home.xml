@@ -24,8 +24,8 @@
             android:layout_height="match_parent"
             binding:onLoadMoreCommand="@{viewModel.onLoadMoreCommand}"
             binding:onRefreshCommand="@{viewModel.onRefreshCommand}"
-            binding:tr_head_height="80dp"
-            binding:tr_wave_height="80dp">
+            binding:tr_head_height="@{viewModel.headHeightObservable}"
+            binding:tr_wave_height="@{viewModel.headHeightObservable}">
 
             <com.shangtao.widget.RobustRecyclerView
                 android:id="@+id/rv_ap_list"

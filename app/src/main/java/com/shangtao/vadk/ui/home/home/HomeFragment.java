@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.databinding.Observable;
 
-import com.lcodecore.tkrefreshlayout.footer.LoadingView;
-import com.lcodecore.tkrefreshlayout.header.SinaRefreshView;
 import com.shangtao.base.BaseFragment;
 import com.shangtao.vadk.BR;
 import com.shangtao.vadk.R;
@@ -50,13 +48,6 @@ public class HomeFragment  extends BaseFragment<FragmentHomeBinding, HomeViewMod
     @Override
     public void initData() {
         //刷新、加载View 可定制、替换
-        SinaRefreshView headerView = new SinaRefreshView(getContext());
-        headerView.setArrowResource(R.mipmap.refresh_head_arrow);
-        headerView.setTextColor(0xff745D5C);
-        binding.twinklingRefreshLayout.setHeaderView(headerView);
-        LoadingView loadingView = new LoadingView(getContext());
-        binding.twinklingRefreshLayout.setBottomView(loadingView);
-
         binding.rvApList.setEmptyView(binding.llEmptyView);
     }
 }
