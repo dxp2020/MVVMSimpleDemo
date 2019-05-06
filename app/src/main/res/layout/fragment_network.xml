@@ -20,14 +20,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
+        <cn.bingoogolapple.refreshlayout.BGARefreshLayout
             android:id="@+id/twinklingRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             binding:onLoadMoreCommand="@{viewModel.onLoadMoreCommand}"
             binding:onRefreshCommand="@{viewModel.onRefreshCommand}"
-            binding:tr_head_height="80dp"
-            binding:tr_wave_height="80dp">
+            >
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
@@ -38,7 +37,7 @@
                 binding:layoutManager="@{LayoutManagers.linear()}"
                 binding:lineManager="@{LineManagers.horizontal()}" />
 
-        </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
+        </cn.bingoogolapple.refreshlayout.BGARefreshLayout>
 
     </LinearLayout>
 </layout>

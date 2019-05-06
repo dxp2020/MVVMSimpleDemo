@@ -23,6 +23,7 @@ ext {
             supportV13  : "com.android.support:support-v13:1.0.0",
             appcompatV7 : "androidx.legacy:legacy-support-v13:1.0.0",
             appcompat : "androidx.appcompat:appcompat:1.0.0",
+            fragment : "androidx.fragment:fragment:1.0.0",
             cardview    : "androidx.cardview:cardview:1.0.0",
             recyclerView: "androidx.recyclerview:recyclerview:1.0.0",
             annotations : "androidx.annotation:annotation:1.0.0",

@@ -43,5 +43,5 @@ dependencies {
     //MVVMHabit
     implementation project(':stkj_base')
     //下拉刷新上拉加载框架
-    implementation project(':TwinklingRefreshLayout')
+    implementation project(':PullToRefresh-DataBinding')
 }

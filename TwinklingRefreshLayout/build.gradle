@@ -1,9 +1,0 @@
-apply plugin: 'com.android.library'
-apply from: "${GRADLES.libConfig}"
-
-dependencies {
-    api fileTree(include: ['*.jar'], dir: 'libs')
-    api rootProject.ext.SUPPORTDEPS.recyclerView
-    api rootProject.ext.SUPPORTDEPS.supportV4
-    api project(path: ':stkj_base')
-}

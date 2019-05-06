@@ -12,6 +12,8 @@ import com.shangtao.vadk.BR;
 import com.shangtao.vadk.R;
 import com.shangtao.vadk.databinding.FragmentHomeBinding;
 
+import cn.bingoogolapple.refreshlayout.BGANormalRefreshViewHolder;
+
 public class HomeFragment  extends BaseFragment<FragmentHomeBinding, HomeViewModel> {
 
     @Override
@@ -32,7 +34,7 @@ public class HomeFragment  extends BaseFragment<FragmentHomeBinding, HomeViewMod
             @Override
             public void onPropertyChanged(Observable observable, int i) {
                 //结束刷新
-                binding.twinklingRefreshLayout.finishRefreshing();
+                binding.twinklingRefreshLayout.endRefreshing();
             }
         });
         //监听上拉加载完成
@@ -40,7 +42,7 @@ public class HomeFragment  extends BaseFragment<FragmentHomeBinding, HomeViewMod
             @Override
             public void onPropertyChanged(Observable observable, int i) {
                 //结束刷新
-                binding.twinklingRefreshLayout.finishLoadmore();
+                binding.twinklingRefreshLayout.endLoadingMore();
             }
         });
     }
@@ -49,5 +51,6 @@ public class HomeFragment  extends BaseFragment<FragmentHomeBinding, HomeViewMod
     public void initData() {
         //刷新、加载View 可定制、替换
         binding.rvApList.setEmptyView(binding.llEmptyView);
+        binding.twinklingRefreshLayout.setRefreshViewHolder(new BGANormalRefreshViewHolder(getActivity(), true));
     }
 }

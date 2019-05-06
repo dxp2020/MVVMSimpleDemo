@@ -52,15 +52,11 @@ public class HomeViewModel extends BaseViewModel {
 
     public ObservableList<ApItemViewModel> observableList = new ObservableArrayList<>();
 
-    public ObservableDouble headHeightObservable = new ObservableDouble();
-
-    public ObservableDouble footHeightObservable = new ObservableDouble();
 
     public HomeViewModel(@NonNull Application application) {
         super(application);
-        headHeightObservable.set(ScreenUtils.getScreenHeight()/2);
-        footHeightObservable.set(ScreenUtils.getScreenHeight()/2);
     }
+
 
     //下拉刷新
     public BindingCommand onRefreshCommand = new BindingCommand(new BindingAction() {
@@ -72,7 +68,6 @@ public class HomeViewModel extends BaseViewModel {
 
     //上拉加载
     public BindingCommand onLoadMoreCommand = new BindingCommand(new BindingAction() {
-        @SuppressLint("CheckResult")
         @Override
         public void call() {
             loadMore();
@@ -133,7 +128,6 @@ public class HomeViewModel extends BaseViewModel {
                 .delay(3, TimeUnit.SECONDS) //延迟3秒
                 .compose(RxUtils.bindToLifecycle(getLifecycleProvider()))//界面关闭自动取消
                 .compose(RxUtils.schedulersTransformer()) //线程调度
-                .doOnSubscribe(disposable -> ToastUtils.showShort("上拉加载"))
                 .subscribe((Consumer<Object>) o -> {
                     //刷新完成收回
                     for(int i=0;i<3;i++){

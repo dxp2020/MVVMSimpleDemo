@@ -28,7 +28,9 @@
             android:layout_gravity="bottom"
             android:background="@color/white"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone"
+            >
 
             <LinearLayout
                 android:id="@+id/radio_home"

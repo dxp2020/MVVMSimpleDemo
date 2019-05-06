@@ -1,11 +1,11 @@
 package com.shangtao.vadk.binding.twinklingrefreshlayout;
 
 
-import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter;
-import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 import com.shangtao.binding.command.BindingCommand;
 
 import androidx.databinding.BindingAdapter;
+
+import cn.bingoogolapple.refreshlayout.BGARefreshLayout;
 
 
 /**
@@ -15,23 +15,26 @@ import androidx.databinding.BindingAdapter;
 public class ViewAdapter {
 
     @BindingAdapter(value = {"onRefreshCommand", "onLoadMoreCommand"}, requireAll = false)
-    public static void onRefreshAndLoadMoreCommand(TwinklingRefreshLayout layout, final BindingCommand onRefreshCommand, final BindingCommand onLoadMoreCommand) {
-        layout.setOnRefreshListener(new RefreshListenerAdapter() {
+    public static void onRefreshAndLoadMoreCommand(BGARefreshLayout layout, final BindingCommand onRefreshCommand, final BindingCommand onLoadMoreCommand) {
+        layout.setDelegate(new BGARefreshLayout.BGARefreshLayoutDelegate() {
             @Override
-            public void onRefresh(TwinklingRefreshLayout refreshLayout) {
-                super.onRefresh(refreshLayout);
+            public void onBGARefreshLayoutBeginRefreshing(BGARefreshLayout refreshLayout) {
                 if (onRefreshCommand != null) {
                     onRefreshCommand.execute();
                 }
             }
 
             @Override
-            public void onLoadMore(TwinklingRefreshLayout refreshLayout) {
-                super.onLoadMore(refreshLayout);
+            public boolean onBGARefreshLayoutBeginLoadingMore(BGARefreshLayout refreshLayout) {
                 if (onLoadMoreCommand != null) {
                     onLoadMoreCommand.execute();
                 }
+                return true;
             }
         });
+
+
+
+
     }
 }
