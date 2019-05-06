@@ -59,19 +59,13 @@ public class HomeViewModel extends BaseViewModel {
 
 
     //下拉刷新
-    public BindingCommand onRefreshCommand = new BindingCommand(new BindingAction() {
-        @Override
-        public void call() {
-            loadData();
-        }
+    public BindingCommand onRefreshCommand = new BindingCommand(() -> {
+        loadData();
     });
 
     //上拉加载
-    public BindingCommand onLoadMoreCommand = new BindingCommand(new BindingAction() {
-        @Override
-        public void call() {
-            loadMore();
-        }
+    public BindingCommand onLoadMoreCommand = new BindingCommand(() ->{
+        loadMore();
     });
 
     /**

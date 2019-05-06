@@ -20,7 +20,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <cn.bingoogolapple.refreshlayout.BGARefreshLayout
+        <com.shangtao.refreshlayout.RefreshLayout
             android:id="@+id/twinklingRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -37,7 +37,7 @@
                 binding:layoutManager="@{LayoutManagers.linear()}"
                 binding:lineManager="@{LineManagers.horizontal()}" />
 
-        </cn.bingoogolapple.refreshlayout.BGARefreshLayout>
+        </com.shangtao.refreshlayout.RefreshLayout>
 
     </LinearLayout>
 </layout>

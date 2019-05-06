@@ -12,7 +12,7 @@ import com.shangtao.vadk.BR;
 import com.shangtao.vadk.R;
 import com.shangtao.vadk.databinding.FragmentHomeBinding;
 
-import cn.bingoogolapple.refreshlayout.BGANormalRefreshViewHolder;
+import com.shangtao.refreshlayout.NormalRefreshViewHolder;
 
 public class HomeFragment  extends BaseFragment<FragmentHomeBinding, HomeViewModel> {
 
@@ -51,6 +51,6 @@ public class HomeFragment  extends BaseFragment<FragmentHomeBinding, HomeViewMod
     public void initData() {
         //刷新、加载View 可定制、替换
         binding.rvApList.setEmptyView(binding.llEmptyView);
-        binding.twinklingRefreshLayout.setRefreshViewHolder(new BGANormalRefreshViewHolder(getActivity(), true));
+        binding.twinklingRefreshLayout.setRefreshViewHolder(new NormalRefreshViewHolder(getActivity(), true));
     }
 }
