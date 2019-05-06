@@ -31,9 +31,6 @@ public class ViewAdapter {
                 return true;
             }
         });
-
-
-
-
     }
+
 }
