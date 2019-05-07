@@ -1,7 +1,0 @@
-apply plugin: 'com.android.library'
-apply from: "${GRADLES.libConfig}"
-
-dependencies {
-    api rootProject.ext.SUPPORTDEPS.recyclerView
-    api rootProject.ext.SUPPORTDEPS.fragment
-}

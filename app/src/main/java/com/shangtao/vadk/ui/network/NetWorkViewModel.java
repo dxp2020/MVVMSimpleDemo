@@ -7,6 +7,7 @@ import androidx.databinding.ObservableBoolean;
 import androidx.databinding.ObservableList;
 import androidx.annotation.NonNull;
 
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.shangtao.vadk.BR;
 import com.shangtao.vadk.R;
 import com.shangtao.vadk.entity.DemoEntity;
@@ -58,19 +59,17 @@ public class NetWorkViewModel extends BaseViewModel {
     //给RecyclerView添加Adpter，请使用自定义的Adapter继承BindingRecyclerViewAdapter，重写onBindBinding方法，里面有你要的Item对应的binding对象
     public final BindingRecyclerViewAdapter<NetWorkItemViewModel> adapter = new BindingRecyclerViewAdapter<>();
 
+    //下拉刷新、上拉加载
+    public PullToRefreshBase.OnRefreshListener2 onRefreshLoadMoreCommand = new PullToRefreshBase.OnRefreshListener2(){
 
-    //下拉刷新
-    public BindingCommand onRefreshCommand = new BindingCommand(new BindingAction() {
         @Override
-        public void call() {
+        public void onPullDownToRefresh(PullToRefreshBase refreshView) {
             ToastUtils.showShort("下拉刷新");
             requestNetWork();
         }
-    });
-    //上拉加载
-    public BindingCommand onLoadMoreCommand = new BindingCommand(new BindingAction() {
+
         @Override
-        public void call() {
+        public void onPullUpToRefresh(PullToRefreshBase refreshView) {
             if (itemIndex > 50) {
                 ToastUtils.showLong("兄dei，你太无聊啦~崩是不可能的~");
                 uc.finishLoadmore.set(!uc.finishLoadmore.get());
@@ -104,7 +103,7 @@ public class NetWorkViewModel extends BaseViewModel {
                         }
                     });
         }
-    });
+    };
 
     /**
      * 网络请求方法，在ViewModel中调用，Retrofit+RxJava充当Repository，即可视为Model层

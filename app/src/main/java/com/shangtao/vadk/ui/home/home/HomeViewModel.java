@@ -13,6 +13,7 @@ import androidx.databinding.ObservableDouble;
 import androidx.databinding.ObservableList;
 
 import com.blankj.utilcode.util.ScreenUtils;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.shangtao.base.BaseViewModel;
 import com.shangtao.binding.command.BindingAction;
 import com.shangtao.binding.command.BindingCommand;
@@ -41,6 +42,10 @@ import me.tatarka.bindingcollectionadapter2.ItemBinding;
 
 public class HomeViewModel extends BaseViewModel {
 
+    public HomeViewModel(@NonNull Application application) {
+        super(application);
+    }
+
     //封装一个界面发生改变的观察者
     public UIChangeObservable uc = new UIChangeObservable();
 
@@ -52,21 +57,19 @@ public class HomeViewModel extends BaseViewModel {
 
     public ObservableList<ApItemViewModel> observableList = new ObservableArrayList<>();
 
+    //下拉刷新、上拉加载
+    public PullToRefreshBase.OnRefreshListener2 onRefreshLoadMoreCommand = new PullToRefreshBase.OnRefreshListener2(){
 
-    public HomeViewModel(@NonNull Application application) {
-        super(application);
-    }
+        @Override
+        public void onPullDownToRefresh(PullToRefreshBase refreshView) {
+            loadData();
+        }
 
-
-    //下拉刷新
-    public BindingCommand onRefreshCommand = new BindingCommand(() -> {
-        loadData();
-    });
-
-    //上拉加载
-    public BindingCommand onLoadMoreCommand = new BindingCommand(() ->{
-        loadMore();
-    });
+        @Override
+        public void onPullUpToRefresh(PullToRefreshBase refreshView) {
+            loadMore();
+        }
+    };
 
     /**
      * 网络请求方法，在ViewModel中调用，Retrofit+RxJava充当Repository，即可视为Model层

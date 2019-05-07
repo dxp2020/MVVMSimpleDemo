@@ -47,7 +47,7 @@ public class NetWorkFragment extends BaseFragment<FragmentNetworkBinding, NetWor
             @Override
             public void onPropertyChanged(Observable observable, int i) {
                 //结束刷新
-                binding.twinklingRefreshLayout.endRefreshing();
+                binding.twinklingRefreshLayout.onRefreshComplete();
             }
         });
         //监听上拉加载完成
@@ -55,7 +55,7 @@ public class NetWorkFragment extends BaseFragment<FragmentNetworkBinding, NetWor
             @Override
             public void onPropertyChanged(Observable observable, int i) {
                 //结束刷新
-                binding.twinklingRefreshLayout.endLoadingMore();
+                binding.twinklingRefreshLayout.onRefreshComplete();
             }
         });
         //监听删除条目

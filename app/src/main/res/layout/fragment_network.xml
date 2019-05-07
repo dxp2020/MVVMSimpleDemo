@@ -11,7 +11,7 @@
 
         <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
 
-        <import type="com.shangtao.binding.viewadapter.recyclerview.LineManagers" />
+        <import type="com.handmark.pulltorefresh.library.binding.viewadapter.recycleview.LineManagers" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -20,24 +20,18 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.shangtao.refreshlayout.RefreshLayout
+        <com.handmark.pulltorefresh.library.PullToRefreshRecyclerView
             android:id="@+id/twinklingRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            binding:onLoadMoreCommand="@{viewModel.onLoadMoreCommand}"
-            binding:onRefreshCommand="@{viewModel.onRefreshCommand}"
-            >
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                binding:adapter="@{viewModel.adapter}"
-                binding:itemBinding="@{viewModel.itemBinding}"
-                binding:items="@{viewModel.observableList}"
-                binding:layoutManager="@{LayoutManagers.linear()}"
-                binding:lineManager="@{LineManagers.horizontal()}" />
-
-        </com.shangtao.refreshlayout.RefreshLayout>
+            binding:ptrMode="both"
+            binding:adapter="@{viewModel.adapter}"
+            binding:itemBinding="@{viewModel.itemBinding}"
+            binding:items="@{viewModel.observableList}"
+            binding:layoutManager="@{LayoutManagers.linear()}"
+            binding:lineManager="@{LineManagers.horizontal()}"
+            binding:onRefreshLoadMoreCommand="@{viewModel.onRefreshLoadMoreCommand}"
+            />
 
     </LinearLayout>
 </layout>
