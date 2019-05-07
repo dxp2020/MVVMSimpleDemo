@@ -1,0 +1,8 @@
+apply plugin: 'com.android.library'
+apply from: "${GRADLES.libConfig}"
+
+dependencies {
+    implementation rootProject.ext.SUPPORTDEPS.recyclerView
+    api rootProject.ext.OTHERDEPS.bindingcollectionadapter
+    api rootProject.ext.OTHERDEPS.bindingcollectionadapte_recyclerview
+}
