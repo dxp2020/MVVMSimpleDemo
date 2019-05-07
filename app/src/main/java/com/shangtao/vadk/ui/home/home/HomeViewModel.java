@@ -1,6 +1,5 @@
 package com.shangtao.vadk.ui.home.home;
 
-import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -9,16 +8,11 @@ import android.content.pm.PackageManager;
 import androidx.annotation.NonNull;
 import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableBoolean;
-import androidx.databinding.ObservableDouble;
 import androidx.databinding.ObservableList;
 
-import com.blankj.utilcode.util.ScreenUtils;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.shangtao.base.BaseViewModel;
-import com.shangtao.binding.command.BindingAction;
-import com.shangtao.binding.command.BindingCommand;
 import com.shangtao.utils.RxUtils;
-import com.shangtao.utils.ToastUtils;
 import com.shangtao.vadk.BR;
 import com.shangtao.vadk.R;
 import com.shangtao.vadk.entity.DkAppEntity;
@@ -37,7 +31,7 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
-import me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter;
+import me.tatarka.bindingcollectionadapter2.BindingListViewAdapter;
 import me.tatarka.bindingcollectionadapter2.ItemBinding;
 
 public class HomeViewModel extends BaseViewModel {
@@ -50,7 +44,7 @@ public class HomeViewModel extends BaseViewModel {
     public UIChangeObservable uc = new UIChangeObservable();
 
     //给RecyclerView添加Adpter，请使用自定义的Adapter继承BindingRecyclerViewAdapter，重写onBindBinding方法，里面有你要的Item对应的binding对象
-    public final BindingRecyclerViewAdapter<ApItemViewModel> adapter = new BindingRecyclerViewAdapter<>();
+    public final BindingListViewAdapter<ApItemViewModel> adapter = new BindingListViewAdapter<>(1);
 
     //给RecyclerView添加ItemBinding
     public ItemBinding<ApItemViewModel> itemBinding = ItemBinding.of(BR.viewModel, R.layout.item_added_ap);
@@ -59,12 +53,10 @@ public class HomeViewModel extends BaseViewModel {
 
     //下拉刷新、上拉加载
     public PullToRefreshBase.OnRefreshListener2 onRefreshLoadMoreCommand = new PullToRefreshBase.OnRefreshListener2(){
-
         @Override
         public void onPullDownToRefresh(PullToRefreshBase refreshView) {
             loadData();
         }
-
         @Override
         public void onPullUpToRefresh(PullToRefreshBase refreshView) {
             loadMore();

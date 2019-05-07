@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.handmark.pulltorefresh.library.PullToRefreshRecyclerView
+       <!-- <com.handmark.pulltorefresh.library.PullToRefreshRecyclerView
             android:id="@+id/twinklingRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -28,6 +28,17 @@
             binding:items="@{viewModel.observableList}"
             binding:layoutManager="@{LayoutManagers.linear()}"
             binding:lineManager="@{LineManagers.horizontal()}"
+            binding:onRefreshLoadMoreCommand="@{viewModel.onRefreshLoadMoreCommand}"
+            />-->
+
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/twinklingRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            binding:ptrMode="both"
+            binding:adapter="@{viewModel.adapter}"
+            binding:itemBinding="@{viewModel.itemBinding}"
+            binding:items="@{viewModel.observableList}"
             binding:onRefreshLoadMoreCommand="@{viewModel.onRefreshLoadMoreCommand}"
             />
 
