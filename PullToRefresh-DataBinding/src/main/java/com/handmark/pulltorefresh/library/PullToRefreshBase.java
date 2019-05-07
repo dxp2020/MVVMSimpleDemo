@@ -225,7 +225,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 
 	@Override
 	public final boolean onInterceptTouchEvent(MotionEvent event) {
-
+		Log.e(LOG_TAG,"onInterceptTouchEvent-->"+event.getAction());
 		if (!isPullToRefreshEnabled()) {
 			return false;
 		}
@@ -321,6 +321,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 
 	@Override
 	public final boolean onTouchEvent(MotionEvent event) {
+		Log.e(LOG_TAG,"onTouchEvent-->"+event.getAction());
 		if (!isPullToRefreshEnabled()) {
 			return false;
 		}

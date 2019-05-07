@@ -2,13 +2,22 @@ package com.handmark.pulltorefresh.library;
 
 
 import android.content.Context;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.LinearLayout;
+
+import java.util.Objects;
 
 public class PullToRefreshRecyclerView extends PullToRefreshBase<RecyclerView> {
+
+    private View emptyView;
 
     public PullToRefreshRecyclerView(Context context) {
         super(context);
@@ -33,8 +42,53 @@ public class PullToRefreshRecyclerView extends PullToRefreshBase<RecyclerView> {
 
     @Override
     protected RecyclerView createRefreshableView(Context context, AttributeSet attrs) {
-        RecyclerView recyclerView = new RecyclerView(context, attrs);
+        RecyclerView recyclerView = new RecyclerView(context, attrs){
+
+            final private AdapterDataObserver observer = new AdapterDataObserver() {
+                @Override
+                public void onChanged() {
+                    checkIfEmpty();
+                }
+
+                @Override
+                public void onItemRangeInserted(int positionStart, int itemCount) {
+                    checkIfEmpty();
+                }
+
+                @Override
+                public void onItemRangeRemoved(int positionStart, int itemCount) {
+                    checkIfEmpty();
+                }
+            };
+
+            private void checkIfEmpty() {
+                if (emptyView != null && getAdapter() != null) {
+                    final boolean emptyViewVisible = getAdapter().getItemCount() == 0;
+                    emptyView.setVisibility(emptyViewVisible ? VISIBLE : GONE);
+                    setVisibility(emptyViewVisible ? GONE : VISIBLE);
+                }
+            }
+
+            @Override
+            public void setAdapter(Adapter adapter) {
+                final Adapter oldAdapter = getAdapter();
+                if (oldAdapter != null) {
+                    oldAdapter.unregisterAdapterDataObserver(observer);
+                }
+                super.setAdapter(adapter);
+                if (adapter != null) {
+                    adapter.registerAdapterDataObserver(observer);
+                }
+                checkIfEmpty();
+            }
+
+        };
         return recyclerView;
+    }
+
+    public void setEmptyView(View view) {
+        this.emptyView = view;
+        getRefreshableViewWrapper().addView(view,new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT));
     }
 
     @Override

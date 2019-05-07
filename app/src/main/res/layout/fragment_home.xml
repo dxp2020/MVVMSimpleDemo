@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-      <!--  <com.handmark.pulltorefresh.library.PullToRefreshRecyclerView
+        <com.handmark.pulltorefresh.library.PullToRefreshRecyclerView
             android:id="@+id/twinklingRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -29,9 +29,9 @@
             binding:layoutManager="@{LayoutManagers.linear()}"
             binding:lineManager="@{LineManagers.horizontal()}"
             binding:onRefreshLoadMoreCommand="@{viewModel.onRefreshLoadMoreCommand}"
-            />-->
+            />
 
-        <com.handmark.pulltorefresh.library.PullToRefreshSwipeMenuListView
+        <!--<com.handmark.pulltorefresh.library.PullToRefreshSwipeMenuListView
             android:id="@+id/twinklingRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -42,7 +42,7 @@
             binding:onRefreshLoadMoreCommand="@{viewModel.onRefreshLoadMoreCommand}"
             binding:menuCreator="@{viewModel.menuCreator}"
             binding:menuItemClickCommand="@{viewModel.menuItemClickCommand}"
-            />
+            />-->
 
     </LinearLayout>
 

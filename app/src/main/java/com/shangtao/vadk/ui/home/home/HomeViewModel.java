@@ -57,11 +57,11 @@ public class HomeViewModel extends BaseViewModel {
     //封装一个界面发生改变的观察者
     public UIChangeObservable uc = new UIChangeObservable();
 
- /*   //给RecyclerView添加Adpter，请使用自定义的Adapter继承BindingRecyclerViewAdapter，重写onBindBinding方法，里面有你要的Item对应的binding对象
-    public final BindingRecyclerViewAdapter<ApItemViewModel> adapter = new BindingRecyclerViewAdapter<>();*/
+    //给RecyclerView添加Adpter，请使用自定义的Adapter继承BindingRecyclerViewAdapter，重写onBindBinding方法，里面有你要的Item对应的binding对象
+    public final BindingRecyclerViewAdapter<ApItemViewModel> adapter = new BindingRecyclerViewAdapter<>();
 
-    //给ListView添加Adpter，请使用自定义的Adapter继承BindingListViewAdapter，重写onBindBinding方法，里面有你要的Item对应的binding对象
-    public final BindingListViewAdapter<ApItemViewModel> adapter = new BindingListViewAdapter<>(1);
+   /* //给ListView添加Adpter，请使用自定义的Adapter继承BindingListViewAdapter，重写onBindBinding方法，里面有你要的Item对应的binding对象
+    public final BindingListViewAdapter<ApItemViewModel> adapter = new BindingListViewAdapter<>(1);*/
 
     //给RecyclerView添加ItemBinding
     public ItemBinding<ApItemViewModel> itemBinding = ItemBinding.of(BR.viewModel, R.layout.item_added_ap);

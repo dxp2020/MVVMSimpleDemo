@@ -2,6 +2,7 @@ package com.shangtao.vadk.ui.home.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
@@ -47,6 +48,6 @@ public class HomeFragment  extends BaseFragment<FragmentHomeBinding, HomeViewMod
     @Override
     public void initData() {
         //刷新、加载View 可定制、替换
-//        binding.rvApList.setEmptyView(binding.llEmptyView);
+        binding.twinklingRefreshLayout.setEmptyView(View.inflate(getActivity(),R.layout.layout_home_empty_view,null));
     }
 }
