@@ -38,25 +38,6 @@ public class ViewAdapter {
         }
     }
 
-    @BindingAdapter(value = {"onRefreshCommand"}, requireAll = false)
-    public static void onRefreshCommand(PullToRefreshRecyclerView view, PullToRefreshBase.OnRefreshListener pOnRefreshListener) {
-        view.setOnRefreshListener(pOnRefreshListener::onRefresh);
-    }
-
-    @BindingAdapter(value = {"onRefreshLoadMoreCommand"}, requireAll = false)
-    public static void onRefreshAndLoadMoreCommand(PullToRefreshRecyclerView view, PullToRefreshBase.OnRefreshListener2 pOnRefreshListener) {
-        view.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<RecyclerView>() {
-            @Override
-            public void onPullDownToRefresh(PullToRefreshBase<RecyclerView> refreshView) {
-                pOnRefreshListener.onPullDownToRefresh(refreshView);
-            }
-            @Override
-            public void onPullUpToRefresh(PullToRefreshBase<RecyclerView> refreshView) {
-                pOnRefreshListener.onPullUpToRefresh(refreshView);
-            }
-        });
-    }
-
     @BindingAdapter("layoutManager")
     public static void setLayoutManager(PullToRefreshRecyclerView view, LayoutManagers.LayoutManagerFactory layoutManagerFactory) {
         RecyclerView recyclerView = view.getRefreshableView();
