@@ -11,6 +11,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import java.util.Objects;
@@ -88,6 +89,13 @@ public class PullToRefreshRecyclerView extends PullToRefreshBase<RecyclerView> {
 
     public void setEmptyView(View view) {
         this.emptyView = view;
+        //解决设置了emptyView，无法下拉、上拉的问题
+        emptyView.setOnTouchListener((v, event) -> {
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                v.performClick();
+            }
+            return true;
+        });
         getRefreshableViewWrapper().addView(view,new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT));
     }
 

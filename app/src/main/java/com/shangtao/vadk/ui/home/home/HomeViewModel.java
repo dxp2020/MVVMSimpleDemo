@@ -1,6 +1,5 @@
 package com.shangtao.vadk.ui.home.home;
 
-import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -11,18 +10,13 @@ import android.graphics.drawable.ColorDrawable;
 import androidx.annotation.NonNull;
 import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableBoolean;
-import androidx.databinding.ObservableDouble;
 import androidx.databinding.ObservableList;
 
-import com.blankj.utilcode.util.ScreenUtils;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.handmark.pulltorefresh.library.swipe.SwipeMenu;
 import com.handmark.pulltorefresh.library.swipe.SwipeMenuCreator;
 import com.handmark.pulltorefresh.library.swipe.SwipeMenuItem;
 import com.handmark.pulltorefresh.library.swipe.SwipeMenuListView;
 import com.shangtao.base.BaseViewModel;
-import com.shangtao.binding.command.BindingAction;
-import com.shangtao.binding.command.BindingCommand;
 import com.shangtao.utils.ConvertUtils;
 import com.shangtao.utils.RxUtils;
 import com.shangtao.utils.ToastUtils;
@@ -57,11 +51,11 @@ public class HomeViewModel extends BaseViewModel {
     //封装一个界面发生改变的观察者
     public UIChangeObservable uc = new UIChangeObservable();
 
-    //给RecyclerView添加Adpter，请使用自定义的Adapter继承BindingRecyclerViewAdapter，重写onBindBinding方法，里面有你要的Item对应的binding对象
-    public final BindingRecyclerViewAdapter<ApItemViewModel> adapter = new BindingRecyclerViewAdapter<>();
+  /*  //给RecyclerView添加Adpter，请使用自定义的Adapter继承BindingRecyclerViewAdapter，重写onBindBinding方法，里面有你要的Item对应的binding对象
+    public final BindingRecyclerViewAdapter<ApItemViewModel> adapter = new BindingRecyclerViewAdapter<>();*/
 
-   /* //给ListView添加Adpter，请使用自定义的Adapter继承BindingListViewAdapter，重写onBindBinding方法，里面有你要的Item对应的binding对象
-    public final BindingListViewAdapter<ApItemViewModel> adapter = new BindingListViewAdapter<>(1);*/
+    //给ListView添加Adpter，请使用自定义的Adapter继承BindingListViewAdapter，重写onBindBinding方法，里面有你要的Item对应的binding对象
+    public final BindingListViewAdapter<ApItemViewModel> adapter = new BindingListViewAdapter<>(1);
 
     //给RecyclerView添加ItemBinding
     public ItemBinding<ApItemViewModel> itemBinding = ItemBinding.of(BR.viewModel, R.layout.item_added_ap);
@@ -80,30 +74,22 @@ public class HomeViewModel extends BaseViewModel {
         }
     };
 
-    public SwipeMenuCreator menuCreator = new SwipeMenuCreator() {
-        @Override
-        public void create(SwipeMenu menu) {
-            SwipeMenuItem deleteItem = new SwipeMenuItem(getApplication());
-            deleteItem.setBackground(new ColorDrawable(Color.parseColor("#e83f22")));
-            deleteItem.setWidth(ConvertUtils.dp2px(90));
-            deleteItem.setTitle("删除");
-            deleteItem.setTitleSize(16);
-            deleteItem.setTitleColor(Color.WHITE);
-            menu.addMenuItem(deleteItem);
-        }
+    public SwipeMenuCreator menuCreator = menu -> {
+        SwipeMenuItem deleteItem = new SwipeMenuItem(getApplication());
+        deleteItem.setBackground(new ColorDrawable(Color.parseColor("#e83f22")));
+        deleteItem.setWidth(ConvertUtils.dp2px(90));
+        deleteItem.setTitle("删除");
+        deleteItem.setTitleSize(16);
+        deleteItem.setTitleColor(Color.WHITE);
+        menu.addMenuItem(deleteItem);
     };
 
-    public SwipeMenuListView.OnMenuItemClickListener menuItemClickCommand =  new SwipeMenuListView.OnMenuItemClickListener() {
-        @Override
-        public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
-            switch (index) {
-                case 0:
-                    ToastUtils.showShort(menu.getMenuItem(index).getTitle()+observableList.get(position).entity.get().getAppName());
-                    observableList.remove(position);
-                    break;
-            }
-            return false;
+    public SwipeMenuListView.OnMenuItemClickListener menuItemClickCommand = (position, menu, index) -> {
+        if (index == 0) {
+            ToastUtils.showShort(menu.getMenuItem(index).getTitle() + observableList.get(position).entity.get().getAppName());
+            observableList.remove(position);
         }
+        return false;
     };
 
     /**
@@ -155,7 +141,11 @@ public class HomeViewModel extends BaseViewModel {
         });
     }
 
-    public void loadMore(){
+    private void loadMore(){
+        if(observableList.size()==0){
+            uc.finishLoadmore.set(!uc.finishLoadmore.get());
+            return;
+        }
         Observable.just("")
                 .delay(3, TimeUnit.SECONDS) //延迟3秒
                 .compose(RxUtils.bindToLifecycle(getLifecycleProvider()))//界面关闭自动取消
